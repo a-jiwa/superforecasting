@@ -14,6 +14,9 @@ import { sendEmailVerification, isSignInWithEmailLink, signInWithEmailLink } fro
 import '../styles/App.css';
 
 import closeIcon from '../styles/close-button.svg'; // Adjust the path to where your SVG is located
+import showPasswordIcon from '../styles/show-password.svg'; // Adjust the path as needed
+import hidePasswordIcon from '../styles/hide-password.svg'; // Adjust the path as needed
+
 
 
 function Login() {
@@ -23,6 +26,7 @@ function Login() {
     const [verificationSent, setVerificationSent] = useState(false);
     const [emailVerified, setEmailVerified] = useState(false);
     const navigate = useNavigate();
+    const [passwordVisible, setPasswordVisible] = useState(false);
 
     useEffect(() => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -133,6 +137,10 @@ function Login() {
         }
     };
 
+    const togglePasswordVisibility = () => {
+        setPasswordVisible(!passwordVisible);
+    };
+
     return (
         <div className="container">
             <button onClick={handleClose} className="closeButton">
@@ -150,9 +158,24 @@ function Login() {
                 <h1>Welcome back</h1>
             {error && <p className="error-message">{getErrorMessage(error.code)}</p>}
             <input className="input" type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-            <input className="input" type="password" placeholder="Password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <div className="passwordInputContainer">
+                <input
+                    className="input"
+                    type={passwordVisible ? "text" : "password"}
+                    placeholder="Create a password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
+                <button onClick={togglePasswordVisibility} className="togglePasswordButton">
+                    <img
+                        src={passwordVisible ? hidePasswordIcon : showPasswordIcon}
+                        alt="Toggle Password"
+                        width="20"
+                        height="20"
+                    />
+                </button>
+            </div>
             <button className="button" onClick={signIn}>LOG IN</button>
-
             <div className="loginLink">
                 <span>Don’t have an account? </span>
                 <Link to="/signup">Sign up</Link>

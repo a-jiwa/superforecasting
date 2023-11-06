@@ -27,7 +27,7 @@ function Landing() {
                 {/* Two Columns */}
                 <div className="left-column">
                     {/* Lottie Animation */}
-                    <Lottie options={defaultOptions} height={400} width={400} />
+                    <Lottie options={defaultOptions} className="lottie-animation" />
                 </div>
                 <div className="right-column">
                     <h3>Make your forecasts now!</h3>

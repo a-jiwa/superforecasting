@@ -258,6 +258,7 @@
 @media (max-width: 480px) {
   .input,
   .button,
+  .passwordInputContainer,
   .googleButton,
   .appleButton,
   .facebookButton,
