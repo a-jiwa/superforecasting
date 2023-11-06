@@ -1,0 +1,141 @@
+/* src/styles/Landing.css */
+.landing-container {
+    max-width: 1000px; /* Set a max width for the entire content */
+    height: 100vh;
+    margin: 0 auto; /* Center the content horizontally */
+    overflow: hidden;
+    /*border: 1px red solid;*/
+}
+
+.header {
+    font-family: "Feather Bold", sans-serif; /* Use "Feather Bold" as the font family */
+    background-color: #ffffff; /* Header background color */
+    /*color: #e512b2; !* Header text color *!*/
+    /*color: rgb(34, 113, 169);*/
+    /*color: rgb(255, 117, 17);*/
+    color: rgb(255, 112, 0);
+    color: #37B724;
+    padding: 8px;
+    /*height: 30px;*/
+    text-align: center;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: row; /* Display columns side by side */
+    justify-content: center; /* Center columns horizontally */
+    align-items: center; /* Center columns vertically */
+
+    font-family: "DIN Next Rounded LT W01 Regular", sans-serif;
+
+    /*gap: 20px;*/
+    /*border: 1px #00eaff solid;*/
+    fill: rgb(28, 176, 246);
+    height: 90%;
+}
+
+.left-column {
+    flex: 1; /* Occupy 1/2 of the available space */
+    /* Add any styles you need for the SVG image here */
+}
+
+.right-column {
+    flex: 1;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+h3 {
+    font-size: 34px;
+    color: rgb(63, 63, 63)
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.blue-button {
+    background-color: rgb(28, 176, 246); /* Blue background color */
+    color: #fff; /* White text color */
+    transition: background-color 0.3s, color 0.3s; /* Add a transition effect */
+}
+
+/* Style for the white button */
+.white-button {
+    background-color: #fff; /* White background color */
+    color: rgb(28, 176, 246); /* Blue text color */
+    border: 2px solid rgb(28, 176, 246); /* Blue border */
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add a transition effect */
+}
+
+.white-button:hover {
+    background-color: #f5f5f5; /* Blue background on hover */
+}
+
+/* Common button styles */
+.button {
+    font-family: "DIN Next Rounded LT W01 Regular", sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 20px;
+    text-decoration: none;
+    margin: 10px 10px;
+}
+
+/* Media query for responsive design */
+@media screen and (max-width: 768px) {
+    .main-content {
+        flex-direction: column; /* Stack columns on top of each other */
+        text-align: center;
+        width: 100vw;
+        /*align-items: center;*/
+    }
+
+    .left-column {
+        order: 1; /* Change the order of left column */
+        width: 300px;
+        height: 250px;
+
+        margin-top: 30px;
+        /*border: 1px red solid;*/
+    }
+
+    .right-column {
+        order: 2;
+        width: 100vw;
+
+        /*border: 1px #002aff solid;*/
+    }
+
+    .lottie-animation {
+        max-width: 100px;
+    }
+    .buttons {
+        margin-top: 0px;
+        width: 90vw;
+
+        text-align: center;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        /*border: 1px #22ff00 solid;*/
+    }
+
+    h3 {
+        font-size: 24px;
+        color: rgb(63, 63, 63)
+    }
+
+    .button {
+        width: 80vw;
+        padding: 10px 10px;
+        text-decoration: none;
+        margin: 5px 0;
+    }
+}
