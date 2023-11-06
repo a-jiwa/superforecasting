@@ -1,0 +1,29 @@
+.home-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* Ensures the layout takes the full viewport height */
+  /*border: 1px #bf00ff solid;*/
+  width: 100%;
+
+}
+
+.main-content {
+  /*border: 2px orange solid;*/
+  margin-left: 250px;
+  padding: 20px;
+  flex-grow: 1;
+}
+
+@media (max-width: 768px) {
+  .main-content {
+    margin-left: 60px;
+  }
+}
+
+/*@media (max-width: 480px) {*/
+/*  .main-content {*/
+/*    !*width: 100px;*!*/
+/*    margin-left: 0;*/
+/*    margin-bottom: 60px; !* Space for the bottom menu *!*/
+/*  }*/
+/*}*/

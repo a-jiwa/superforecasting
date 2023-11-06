@@ -1,0 +1,146 @@
+.menu {
+    width: 250px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+
+    border-right: 2px #e0e0e0 solid;
+
+    /*border: 1px red solid;*/
+}
+
+.logo-text {
+    font-family: "Feather Bold", sans-serif; /* Use "Feather Bold" as the font family */
+    color: #37B724;
+    /*padding: 8px;*/
+    text-align: center;
+    width: 100%;
+
+    /*border: 1px red solid;*/
+}
+
+.logo-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    margin: 5px 15px;
+    letter-spacing: 1.5px;
+    border: 2px solid rgb(255, 255, 255);
+    border-radius: 12px;
+}
+
+.menu-item.selected {
+    background-color: rgb(221, 244, 255);
+    color: rgb(28, 176, 246);
+    border: 2px solid rgb(132, 216, 255);
+}
+
+.menu-item:not(.selected):hover {
+    background-color: #f0f0f0;
+}
+
+.menu-icon {
+    width: 35px; /* Replace with the size you want */
+    height: 35px; /* Replace with the size you want */
+    margin-right: 10px; /* Keeps the original spacing */
+}
+
+.menu-text {
+    display: block;
+}
+
+.logo-icon {
+    display: none; /* Initially hidden, shown on smaller screens */
+}
+
+/* Responsive design changes */
+@media (max-width: 768px) {
+    .menu {
+        width: 90px;
+        display: flex;
+        align-items: center;
+        padding: 0px;
+        cursor: pointer;
+    }
+
+    .menu-item {
+        padding: 5px;
+        /*margin: 10px 10px;*/
+
+    }
+
+    .menu-text {
+        display: none;
+    }
+
+    .logo-text {
+        display: none;
+    }
+
+    .menu-icon, .logo-icon {
+        min-width: 35px; /* Minimum icon width */
+        min-height: 35px; /* Minimum icon height */
+        margin-right: 0px; /* Keeps the original spacing */
+    }
+
+    .logo-icon {
+        display: block;
+        margin: auto; /* Center logo icon when text is not present */
+    }
+}
+
+/*@media (max-width: 480px) {*/
+/*    .home-layout {*/
+/*        flex-direction: column-reverse; !* Stack main content above the menu *!*/
+/*        border: 2px green solid;*/
+/*    }*/
+
+/*    .menu {*/
+/*        width: 100px; !* Full width of the viewport *!*/
+/*        height: 60px; !* Set a fixed height for the menu *!*/
+/*        position: fixed; !* Fixed at the bottom *!*/
+/*        bottom: 0;*/
+/*        left: 0;*/
+/*        flex-direction: row; !* Layout menu items horizontally *!*/
+/*        justify-content: space-around; !* Distribute items evenly *!*/
+/*        overflow-x: auto; !* Scroll if too many items *!*/
+/*        border-top: 1px solid #ccc; !* Optional border for better visual separation *!*/
+
+/*        border: 1px blue solid;*/
+/*    }*/
+
+/*    .menu-item {*/
+/*        flex-grow: 1; !* Each item can grow to fill available space *!*/
+/*        justify-content: center; !* Center icons in their flex container *!*/
+/*        padding: 0px;*/
+/*    }*/
+
+/*    .menu-icon {*/
+/*        margin-right: 0px; !* Spacing between icon and text *!*/
+/*        width: 10px;*/
+/*    }*/
+
+
+
+/*    .logo-container {*/
+/*        display: none; !* Hide logo at very small sizes *!*/
+/*    }*/
+
+/*    .main-content {*/
+/*        flex: 1; !* Main content takes up the remaining space *!*/
+/*        margin: 0; !* Reset margins as the menu is now at the bottom *!*/
+/*        padding-bottom: 60px; !* Give some space for the bottom menu *!*/
+/*    }*/
+/*}*/

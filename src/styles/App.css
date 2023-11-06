@@ -7,6 +7,7 @@
   background-color: #fff;
   color: #2d333a;
   padding: 0 20px; /* added padding to container */
+  border: 1px red solid;
 }
 
 .closeButton {

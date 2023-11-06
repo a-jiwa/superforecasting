@@ -1,37 +1,60 @@
-import React, { useEffect, useState } from "react";
-import { auth } from "../firebase";
-import UpdateScoreButton from "./UpdateScoreButton";
+// Home.js
+import React, { useState, useEffect } from 'react';
+import { auth } from '../firebase';
+import UpdateScoreButton from './UpdateScoreButton';
+import Menu from './Menu';
+import Forecasts from './Forecasts';
+import Leaderboard from './Leaderboard';
+import HowItWorks from './HowItWorks';
+import Profile from './Profile';
 import '../styles/App.css';
+import '../styles/Home.css';
 
 function Home() {
     const [user, setUser] = useState(null);
+    const [selectedMenuItem, setSelectedMenuItem] = useState('Forecasts');
 
     useEffect(() => {
-        // Subscribe to user on auth state changed.
         const unsubscribe = auth.onAuthStateChanged((user) => {
-            if (user) {
-                console.log("User Name: ", user.displayName); // Log the displayName to see if it is updated
-            }
             setUser(user);
         });
-
-        // Unsubscribe to avoid memory leaks
         return () => unsubscribe();
     }, []);
 
-    const userId = user ? user.uid : null;
-    const userName = user ? user.displayName : null;
-    const userEmail = user ? user.email : null;
+    const handleMenuSelect = (menuItem) => {
+        setSelectedMenuItem(menuItem);
+    };
+
+    const renderContent = () => {
+        switch (selectedMenuItem) {
+            case 'Forecasts':
+                return <Forecasts />;
+            case 'Leaderboard':
+                return <Leaderboard />;
+            case 'How it works':
+                return <HowItWorks />;
+            case 'Profile':
+                return <Profile user={user} />;
+            default:
+                return <div>Select a menu item</div>;
+        }
+    };
 
     return (
-        <div className="container">
-            <h2>Welcome back {userEmail}!</h2>
-            {user ? (
-                <UpdateScoreButton userId={userId} userName={userName} />
-            ) : (
-                <p>Loading...</p>
-            )}
-            <button onClick={() => auth.signOut()}>Logout</button>
+        <div className="home-layout">
+            <Menu selected={selectedMenuItem} onSelect={handleMenuSelect} />
+            <div className="main-content">
+                {user ? (
+                    <>
+                        {/*<h2>Welcome back {user.email}!</h2>*/}
+                        {/*<UpdateScoreButton userId={user.uid} userName={user.displayName} />*/}
+                        {/*<button onClick={() => auth.signOut()}>Logout</button>*/}
+                    </>
+                ) : (
+                    <p>Loading...</p>
+                )}
+                {renderContent()}
+            </div>
         </div>
     );
 }
