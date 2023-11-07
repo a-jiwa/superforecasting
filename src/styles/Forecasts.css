@@ -2,9 +2,41 @@
 
 /* Overall layout */
 .forecasts-container {
-    max-width: 600px;
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
+    background-color: #fff; /* Add a white background */
+    /*box-shadow: 0 2px 4px rgba(0,0,0,0.1); !* Add a subtle shadow to lift the container *!*/
+    border-radius: 8px; /* Smooth out the corners */
+}
+
+/* Add styles for time remaining and questions answered sections */
+.countdown-timer {
+    font-size: 20px; /* Increase font size for better visibility */
+    margin-bottom: 10px; /* Add spacing between sections */
+}
+
+.answered-questions {
+    font-size: 16px;
+    color: #666; /* Use a softer color for text */
+    margin-bottom: 20px; /* Add spacing between sections */
+}
+
+.introduction-section {
+    margin-bottom: 20px;
+    padding: 15px;
+    background-color: #f8f8f8;
+    border-radius: 8px;
+    color: #333;
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.forecast-category {
+    background-color: #f8f8f8; /* Grey background */
+    border-radius: 12px; /* Optional: rounded corners */
+    padding: 20px; /* Spacing inside the category container */
+    margin-bottom: 20px; /* Spacing between each category container */
 }
 
 .forecast-question {
@@ -14,21 +46,27 @@
     padding-bottom: 20px;
 }
 
+/* Typography improvements for hierarchy and readability */
 .forecast-question h3 {
     color: #333;
-    margin-bottom: 5px;
+    margin-bottom: 10px; /* Increase space below the heading for better visual separation */
+    font-size: 18px; /* Slightly larger to denote importance */
+    font-weight: 600; /* Bold weight for headings */
 }
 
 .forecast-question p {
     color: #666;
-    font-size: 14px;
-    margin-bottom: 10px;
+    font-size: 15px; /* Adjust font size for readability */
+    line-height: 1.7; /* Improved line height */
+    margin-bottom: 15px; /* Adjust bottom margin */
 }
 
+/* Enhancements for form elements */
 .forecast-question input[type="range"] {
-    -webkit-appearance: none;
+    -webkit-appearance: none; /* Remove default styling */
     width: 100%;
-    margin: 10px 0;
+    margin: 18px 0; /* Increase vertical spacing */
+    background: transparent; /* Remove default background */
 }
 
 /* Slider thumb */
@@ -65,7 +103,15 @@
     border-radius: 4px;
 }
 
-/* Likelihood percentage */
+.slider-answered {
+    /* Styles for when the slider has been interacted with */
+}
+
+.slider-unanswered {
+    /* Different styles for when the slider has not been interacted with */
+}
+
+/* Enhance the likelihood percentage indicator */
 .likelihood-percentage {
     font-weight: bold;
     color: #333;
@@ -73,18 +119,28 @@
 
 /* Submit button */
 .submit-button {
-    background-color: #4CAF50;
+    /*box-sizing: border-box; !* New Property *!*/
+    background-color: rgb(28, 176, 246);
+    border-radius: 12px;
     color: white;
-    border: none;
-    padding: 15px 32px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
     cursor: pointer;
-    border-radius: 4px;
+    padding: 10px;
+    margin: 20px 0;
+    text-align: center;
+
+    font-size: 16px;
+    font-weight: bold;
+
     width: 100%;
+    height: 55px;
+
+    border: 2px solid rgb(22, 138, 194);
+
+    transition: background-color 0.15s ease-in-out;
+}
+
+.submit-button:hover {
+    background-color: rgb(27, 164, 229);
 }
 
 /* Slider thumb */
@@ -173,6 +229,11 @@
 /* Ensure content is not too wide on large screens */
 @media (min-width: 768px) {
     .forecasts-container {
-        padding: 20px;
+        padding: 40px; /* Increase padding on larger screens */
     }
+}
+
+/* Adding transitions for smooth visual effects */
+* {
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }

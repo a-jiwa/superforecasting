@@ -10,9 +10,12 @@ function Forecasts() {
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const [userId, setUserId] = useState(null);
     const [timeLeft, setTimeLeft] = useState('');
+    const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
+    const [allAnswered, setAllAnswered] = useState(false);
 
     // Initialize countdown timer
     const deadline = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59); // December 31st of the current year
+
 
     useEffect(() => {
         // Timer to update the remaining time
@@ -38,28 +41,45 @@ function Forecasts() {
         return () => clearInterval(timer); // Cleanup the interval on unmount
     }, []);
 
-    // Keep track of all the forecast values
     const [forecasts, setForecasts] = useState([
         {
             id: 1,
             question: 'What is the likelihood of a recession in the next year?',
             explanation: 'Consider economic indicators and historical trends to estimate the probability of a recession.',
-            likelihood: 50
+            likelihood: 50,
+            category: 'Economics',
         },
         {
             id: 2,
             question: 'How likely is it that Country X will have a significant political reform by the end of this decade?',
             explanation: 'Assess political stability, reform movements, and international pressures to forecast potential changes.',
-            likelihood: 50
+            likelihood: 50,
+            category: 'Politics',
         },
         {
             id: 3,
             question: 'What are the chances of a major breakthrough in renewable energy technology in the next five years?',
             explanation: 'Evaluate ongoing research, investments, and technological trends to estimate the probability of a breakthrough.',
-            likelihood: 50
+            likelihood: 50,
+            category: 'Science',
         },
-        // Add more questions as needed
+        // ... other questions with their respective categories
+        {
+            id: 4,
+            question: 'Economic Growth: Will the annual GDP growth rate of the United States for the fiscal year 2024 exceed 2.5% as reported by the U.S. Bureau of Economic Analysis?',
+            explanation: 'Assess economic data and trends to forecast the GDP growth rate.',
+            likelihood: 50,
+            category: 'Economics',
+        },
+        {
+            id: 5,
+            question: 'Space Exploration: Will NASA confirm the launch of the Artemis III mission to land humans on the moon by December 31, 2024?',
+            explanation: 'Monitor NASA announcements and space exploration developments.',
+            likelihood: 50,
+            category: 'Science',
+        },
     ]);
+
 
     useEffect(() => {
         // You should replace 'userId' with the actual logged-in user's ID
@@ -87,7 +107,9 @@ function Forecasts() {
                 forecast.id === id ? {...forecast, likelihood: value} : forecast
             )
         );
+        setAnsweredQuestions(currentAnswered => new Set(currentAnswered).add(id));
     };
+
 
     const handleSubmit = async () => {
         if (hasSubmitted) {
@@ -123,24 +145,43 @@ function Forecasts() {
         }
     };
 
+    const groupForecastsByCategory = (forecasts) => {
+        return forecasts.reduce((acc, forecast) => {
+            (acc[forecast.category] = acc[forecast.category] || []).push(forecast);
+            return acc;
+        }, {});
+    };
+
+    const forecastsByCategory = groupForecastsByCategory(forecasts);
+
     return (
         <div className="forecasts-container">
             <h1>Forecast Questions</h1>
-            <div className="countdown-timer">
-                Time remaining: {timeLeft}
+            <div className="answered-questions">
+                <strong>Questions answered:</strong> {answeredQuestions.size} of {forecasts.length}
             </div>
-            {hasSubmitted && <div className="success-message">You have already submitted your forecasts:</div>}
-            {forecasts.map(forecast => (
-                <ForecastQuestion
-                    key={forecast.id}
-                    id={forecast.id}
-                    question={forecast.question}
-                    explanation={forecast.explanation}
-                    likelihood={forecast.likelihood}
-                    handleSliderChange={handleSliderChange}
-                    hasSubmitted={hasSubmitted}
-                />
+            <div className="countdown-timer">
+                <strong>Time remaining:</strong> {timeLeft}
+            </div>
+
+            {/* Render forecasts by category */}
+            {Object.entries(forecastsByCategory).map(([category, forecasts]) => (
+                <div key={category} className="forecast-category">
+                    <h2>{category}</h2>
+                    {forecasts.map(forecast => (
+                        <ForecastQuestion
+                            key={forecast.id}
+                            id={forecast.id}
+                            question={forecast.question}
+                            explanation={forecast.explanation}
+                            likelihood={forecast.likelihood}
+                            handleSliderChange={handleSliderChange}
+                            hasSubmitted={hasSubmitted}
+                        />
+                    ))}
+                </div>
             ))}
+
             {!hasSubmitted && (
                 <button className="submit-button" onClick={handleSubmit}>
                     Submit
@@ -149,4 +190,5 @@ function Forecasts() {
         </div>
     );
 }
+
 export default Forecasts;
