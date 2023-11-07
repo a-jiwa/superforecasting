@@ -42,9 +42,23 @@ function Leaderboard() {
         return colors[Math.floor(Math.random() * colors.length)];
     };
 
+    // Helper function to generate color based on the string
+    const stringToColor = (str) => {
+        let hash = 0;
+        for (let i = 0; i < str.length; i++) {
+            hash = str.charCodeAt(i) + ((hash << 5) - hash);
+        }
+        let color = '#';
+        for (let i = 0; i < 3; i++) {
+            const value = (hash >> (i * 8)) & 0xFF;
+            color += ('00' + value.toString(16)).substr(-2);
+        }
+        return color;
+    };
+    
     const ProfilePicture = ({ name }) => {
         const initial = name ? name.charAt(0).toUpperCase() : '';
-        const bgColor = getRandomColor();
+        const bgColor = stringToColor(name || '');
 
         return (
             <svg height="50" width="50" viewBox="0 0 50 50" className="profile-svg">
