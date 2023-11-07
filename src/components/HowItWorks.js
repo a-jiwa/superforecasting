@@ -4,7 +4,7 @@ import React from 'react';
 function HowItWorks() {
     return (
         <div>
-            Forecasts Content
+            HowItWorks Content
         </div>
     );
 }
