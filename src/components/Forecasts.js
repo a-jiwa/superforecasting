@@ -1,16 +1,14 @@
+// Forecasts.js
 import React, { useState, useEffect } from 'react';
-import { db } from '../firebase';
+import { db, auth } from '../firebase';
 import '../styles/Forecasts.css';
 import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
-import { auth } from '../firebase';
-import ForecastQuestion from './ForecastQuestion'; // Import the new component
+import ForecastQuestion from './ForecastQuestion';
 
-function Forecasts() {
+function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQuestions, userId, loadForecasts }) {
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [hasSubmitted, setHasSubmitted] = useState(false);
-    const [userId, setUserId] = useState(null);
     const [timeLeft, setTimeLeft] = useState('');
-    const [answeredQuestions, setAnsweredQuestions] = useState(new Set());
     const [allAnswered, setAllAnswered] = useState(false);
 
     // Initialize countdown timer
@@ -41,74 +39,21 @@ function Forecasts() {
         return () => clearInterval(timer); // Cleanup the interval on unmount
     }, []);
 
-    const [forecasts, setForecasts] = useState([
-        {
-            id: 1,
-            question: 'What is the likelihood of a recession in the next year?',
-            explanation: 'Consider economic indicators and historical trends to estimate the probability of a recession.',
-            likelihood: 50,
-            category: 'Economics',
-        },
-        {
-            id: 2,
-            question: 'How likely is it that Country X will have a significant political reform by the end of this decade?',
-            explanation: 'Assess political stability, reform movements, and international pressures to forecast potential changes.',
-            likelihood: 50,
-            category: 'Politics',
-        },
-        {
-            id: 3,
-            question: 'What are the chances of a major breakthrough in renewable energy technology in the next five years?',
-            explanation: 'Evaluate ongoing research, investments, and technological trends to estimate the probability of a breakthrough.',
-            likelihood: 50,
-            category: 'Science',
-        },
-        // ... other questions with their respective categories
-        {
-            id: 4,
-            question: 'Economic Growth: Will the annual GDP growth rate of the United States for the fiscal year 2024 exceed 2.5% as reported by the U.S. Bureau of Economic Analysis?',
-            explanation: 'Assess economic data and trends to forecast the GDP growth rate.',
-            likelihood: 50,
-            category: 'Economics',
-        },
-        {
-            id: 5,
-            question: 'Space Exploration: Will NASA confirm the launch of the Artemis III mission to land humans on the moon by December 31, 2024?',
-            explanation: 'Monitor NASA announcements and space exploration developments.',
-            likelihood: 50,
-            category: 'Science',
-        },
-    ]);
-
 
     useEffect(() => {
-        // You should replace 'userId' with the actual logged-in user's ID
         const checkSubmission = async () => {
-            if (auth.currentUser) {
-                const uid = auth.currentUser.uid;
-                setUserId(uid); // Set the user ID state
-                const q = query(collection(db, 'forecasts'), where('userId', '==', uid));
+            if (userId) {
+                const q = query(collection(db, 'forecasts'), where('userId', '==', userId));
 
                 const querySnapshot = await getDocs(q);
                 if (!querySnapshot.empty) {
-                    const userForecast = querySnapshot.docs[0].data();
-                    setForecasts(userForecast.forecasts);
                     setHasSubmitted(true);
                 }
             }
         };
 
         checkSubmission();
-    }, []); // If auth or db changes over time, include them in this dependency array
-
-    const handleSliderChange = (id, value) => {
-        setForecasts(currentForecasts =>
-            currentForecasts.map(forecast =>
-                forecast.id === id ? {...forecast, likelihood: value} : forecast
-            )
-        );
-        setAnsweredQuestions(currentAnswered => new Set(currentAnswered).add(id));
-    };
+    }, [userId]);
 
 
     const handleSubmit = async () => {
@@ -153,6 +98,26 @@ function Forecasts() {
     };
 
     const forecastsByCategory = groupForecastsByCategory(forecasts);
+
+    const handleSliderChange = (id, value) => {
+        onSliderChange(id, value);
+        setAnsweredQuestions(currentAnswered => new Set(currentAnswered).add(id));
+
+        // Save the updated forecasts to Local Storage
+        const updatedForecasts = forecasts.map(forecast =>
+            forecast.id === id ? { ...forecast, likelihood: value } : forecast
+        );
+        localStorage.setItem('forecasts', JSON.stringify(updatedForecasts));
+    };
+
+    useEffect(() => {
+        // Check if there are forecasts saved in Local Storage
+        const savedForecasts = JSON.parse(localStorage.getItem('forecasts'));
+        if (savedForecasts) {
+            // Call a prop function to update the forecasts in the parent component
+            loadForecasts(savedForecasts); // This function should be passed as a prop from Home.js
+        }
+    }, [loadForecasts]); // Add loadForecasts to the dependency array
 
     return (
         <div className="forecasts-container">

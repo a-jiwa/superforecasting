@@ -6,7 +6,7 @@ import { ReactComponent as ForecastIcon } from '../icons/home.svg';
 import { ReactComponent as LeaderboardIcon } from '../icons/leaderboard.svg';
 import { ReactComponent as HowItWorksIcon } from '../icons/how-it-works.svg';
 import { ReactComponent as ProfileIcon } from '../icons/profile.svg';
-import { ReactComponent as LogoIcon } from '../icons/home.svg';
+import { ReactComponent as LogoIcon } from '../icons/logo.svg';
 
 function MenuItem({ label, Icon, isSelected, onClick }) {
     return (
