@@ -19,36 +19,36 @@ function Home() {
                     question: 'What is the likelihood of a recession in the next year?',
                     explanation: 'Consider economic indicators and historical trends to estimate the probability of a recession.',
                     likelihood: 50,
-                    category: 'Economics',
+                    category: 'ECONOMICS',
                 },
                 {
                     id: 2,
-                    question: 'How likely is it that Country X will have a significant political reform by the end of this decade?',
+                    question: 'How likely is it that Uganda will have a significant political reform by the end of this decade?',
                     explanation: 'Assess political stability, reform movements, and international pressures to forecast potential changes.',
                     likelihood: 50,
-                    category: 'Politics',
+                    category: 'POLITICS',
                 },
                 {
                     id: 3,
                     question: 'What are the chances of a major breakthrough in renewable energy technology in the next five years?',
                     explanation: 'Evaluate ongoing research, investments, and technological trends to estimate the probability of a breakthrough.',
                     likelihood: 50,
-                    category: 'Science',
+                    category: 'SCIENCE',
                 },
                 // ... other questions with their respective categories
                 {
                     id: 4,
-                    question: 'Economic Growth: Will the annual GDP growth rate of the United States for the fiscal year 2024 exceed 2.5% as reported by the U.S. Bureau of Economic Analysis?',
+                    question: 'Will the annual GDP growth rate of the United States for the fiscal year 2024 exceed 2.5% as reported by the U.S. Bureau of Economic Analysis?',
                     explanation: 'Assess economic data and trends to forecast the GDP growth rate.',
                     likelihood: 50,
-                    category: 'Economics',
+                    category: 'ECONOMICS',
                 },
                 {
                     id: 5,
-                    question: 'Space Exploration: Will NASA confirm the launch of the Artemis III mission to land humans on the moon by December 31, 2024?',
+                    question: 'Will NASA confirm the launch of the Artemis III mission to land humans on the moon by December 31, 2024?',
                     explanation: 'Monitor NASA announcements and space exploration developments.',
                     likelihood: 50,
-                    category: 'Science',
+                    category: 'SCIENCE',
                 },
 ];
     });
@@ -99,7 +99,7 @@ function Home() {
 
     const renderContent = () => {
         switch (selectedMenuItem) {
-            case 'Forecasts':
+            case 'FORECASTS':
                 return <Forecasts
                     forecasts={forecasts}
                     onSliderChange={handleSliderChange}
@@ -108,14 +108,21 @@ function Home() {
                     userId={userId}
                     loadForecasts={loadForecasts}
                 />;
-            case 'Leaderboard':
+            case 'LEADERBOARD':
                 return <Leaderboard />;
-            case 'How it works':
+            case 'HOW IT WORKS':
                 return <HowItWorks />;
-            case 'Profile':
+            case 'PROFILE':
                 return <Profile user={user} />;
             default:
-                return <div>Select a menu item</div>;
+                return <Forecasts
+                    forecasts={forecasts}
+                    onSliderChange={handleSliderChange}
+                    answeredQuestions={answeredQuestions}
+                    setAnsweredQuestions={setAnsweredQuestions}
+                    userId={userId}
+                    loadForecasts={loadForecasts}
+                />;
         }
     };
 

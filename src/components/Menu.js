@@ -19,10 +19,10 @@ function MenuItem({ label, Icon, isSelected, onClick }) {
 
 function Menu({ selected, onSelect }) {
     const menuItems = [
-        { label: 'Forecasts', Icon: ForecastIcon },
-        { label: 'Leaderboard', Icon: LeaderboardIcon },
-        { label: 'How it works', Icon: HowItWorksIcon },
-        { label: 'Profile', Icon: ProfileIcon },
+        { label: 'FORECASTS', Icon: ForecastIcon },
+        { label: 'LEADERBOARD', Icon: LeaderboardIcon },
+        { label: 'HOW IT WORKS', Icon: HowItWorksIcon },
+        { label: 'PROFILE', Icon: ProfileIcon },
     ];
 
     return (

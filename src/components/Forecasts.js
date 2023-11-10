@@ -14,7 +14,6 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
     // Initialize countdown timer
     const deadline = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59); // December 31st of the current year
 
-
     useEffect(() => {
         // Timer to update the remaining time
         const timer = setInterval(() => {
@@ -30,14 +29,25 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
                 let days = Math.floor(difference / (1000 * 60 * 60 * 24));
                 let hours = Math.floor((difference / (1000 * 60 * 60)) % 24);
                 let minutes = Math.floor((difference / 1000 / 60) % 60);
-                let seconds = Math.floor((difference / 1000) % 60);
 
-                setTimeLeft(`${days} days ${hours} hours ${minutes} minutes ${seconds} seconds`);
+                let timeString = '';
+                if (days > 7) {
+                    timeString = `${days} days`;
+                } else if (days >= 1) {
+                    timeString = `${days} days ${hours} hours`;
+                } else {
+                    // When less than one day, show only hours and minutes
+                    timeString = `${hours} hours ${minutes} minutes`;
+                }
+
+                setTimeLeft(timeString);
             }
         }, 1000);
 
         return () => clearInterval(timer); // Cleanup the interval on unmount
     }, []);
+
+
 
 
     useEffect(() => {
@@ -121,18 +131,34 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
 
     return (
         <div className="forecasts-container">
-            <h1>Forecast Questions</h1>
-            <div className="answered-questions">
-                <strong>Questions answered:</strong> {answeredQuestions.size} of {forecasts.length}
+            <h1>Questions</h1>
+            <p className="explanatory-text">
+                Browse through a collection of questions, each accompanied by a slider to indicate your predicted likelihood of the event in question. Your task is to adjust these sliders based on your assessment. Once you have set your forecasts, submit them using the button provided. Remember, your predictions matter, so take your time to consider each question carefully.
+            </p>
+            <div className="sticky-progress-container">
+                {/*<div className="progress-text">*/}
+                {/*    Questions answered: {answeredQuestions.size} of {forecasts.length}*/}
+                {/*</div>*/}
+                <div className="progress-bar-container">
+                    <div className="progress-bar" style={{ width: `${(answeredQuestions.size / forecasts.length) * 100}%` }}></div>
+                </div>
             </div>
+
+
             <div className="countdown-timer">
-                <strong>Time remaining:</strong> {timeLeft}
+                <div className="time-remaining-container">
+                    <strong>Time remaining:</strong>
+                    <span>{timeLeft}</span>
+                </div>
             </div>
+
 
             {/* Render forecasts by category */}
             {Object.entries(forecastsByCategory).map(([category, forecasts]) => (
                 <div key={category} className="forecast-category">
-                    <h2>{category}</h2>
+                    <div className="category-title-container">
+                        <h2 className="forecast-category-title">{category}</h2>
+                    </div>
                     {forecasts.map(forecast => (
                         <ForecastQuestion
                             key={forecast.id}

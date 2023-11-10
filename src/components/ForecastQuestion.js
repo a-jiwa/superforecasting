@@ -1,59 +1,138 @@
 // ForecastQuestion.js
 import React from 'react';
 import '../styles/Forecasts.css';
+import { throttle } from 'lodash';
+import Tooltip from './Tooltip';
 
-import { ReactComponent as Face1 } from '../styles/face-10.svg';
-import { ReactComponent as Face2 } from '../styles/face-4.svg';
-import { ReactComponent as Face3 } from '../styles/face-11.svg';
-import { ReactComponent as Face4 } from '../styles/face-9.svg';
-import { ReactComponent as Face5 } from '../styles/face-7.svg';
-import { ReactComponent as Face6 } from '../styles/face-2.svg';
-import { ReactComponent as Face7 } from '../styles/face-12.svg';
-import { ReactComponent as Face8 } from '../styles/face-8.svg';
-import { ReactComponent as Face9 } from '../styles/face-5.svg';
-import { ReactComponent as Face10 } from '../styles/face-2.svg';
-import { ReactComponent as Face11 } from '../styles/face-3.svg';
-import { ReactComponent as Face12 } from '../styles/face-1.svg';
-
-// A simple function to select SVG based on the slider value
-// A function to select an SVG based on the slider value
-const selectExpression = (likelihood) => {
-    // Divide the 0-100 range into 12 increments of approximately 8.33 each
-    const increment = 100 / 12;
-
-    if (likelihood < increment) return <Face1 />;
-    else if (likelihood < increment * 2) return <Face2 />;
-    else if (likelihood < increment * 3) return <Face3 />;
-    else if (likelihood < increment * 4) return <Face4 />;
-    else if (likelihood < increment * 5) return <Face6 />;
-    else if (likelihood < increment * 6) return <Face6 />;
-    else if (likelihood < increment * 7) return <Face7 />;
-    else if (likelihood < increment * 8) return <Face9 />;
-    else if (likelihood < increment * 10) return <Face10 />;
-    else if (likelihood < increment * 11) return <Face11 />;
-    else return <Face12 />;
-};
 const ForecastQuestion = ({ question, explanation, likelihood, handleSliderChange, id, hasSubmitted }) => {
+
+    const wordDescriptions = {
+        recession: 'A fall in GDP in two successive quarters',
+        // Add more words and their descriptions here
+    };
+
+    // Define your styles as a dictionary or object
+    const additionalStyles = {
+        highlight: { color: 'rgb(28, 176, 246)', fontWeight: 'bold' }, // Example style
+        // Add more styles as needed
+    };
+
+// Define the words and the styles you want to apply to them
+    const styledWords = {
+        '2.5%': 'highlight',
+        // ... other words
+    };
+
+
+    // Function to split the question into words and wrap with Tooltip if description exists
+    const renderQuestionWithTooltips = (question) => {
+        // Split the question into words, spaces, and numeric terms including '%'
+        return question.split(/(\s+|%|\d+\.\d+%)/).map((word, index) => {
+            // Directly check if the word matches one of the keys in styledWords
+            if (wordDescriptions[word]) {
+                return (
+                    <Tooltip description={wordDescriptions[word]} key={index}>
+                        <span className="glossary-word">{word}</span>
+                    </Tooltip>
+                );
+            } else if (styledWords[word]) {
+                // Apply the style from additionalStyles dictionary
+                const styleKey = styledWords[word];
+                const style = additionalStyles[styleKey];
+                return (
+                    <span style={style} key={index}>
+          {word}
+        </span>
+                );
+            }
+            return word; // Return the word as is if no special styling
+        });
+    };
+
+
+
+
+    const throttledHandleSliderChange = throttle((id, value) => {
+        handleSliderChange(id, value);
+    }, 200);
+
+    const getPercentageColor = (value) => {
+        // Define color stops as an array of [percentage, color] tuples
+        const colorStops = [
+            [0, 'rgb(213,14,14)'],    // Red at 0%
+            [50, 'rgb(255, 165, 0)'], // Orange at 50%
+            [100, 'rgb(14,194,14)'],  // Green at 100%
+            // Add more color stops if needed
+        ];
+
+        // Find the two closest stops
+        const lowerStop = colorStops.reduce((prev, curr) => (curr[0] <= value ? curr : prev));
+        const upperStop = colorStops.find(stop => stop[0] >= value) || lowerStop;
+
+        // Calculate the ratio between the two stops
+        const range = upperStop[0] - lowerStop[0];
+        const rangeValue = value - lowerStop[0];
+        const ratio = range !== 0 ? rangeValue / range : 1;
+
+        // Linear interpolation of the colors
+        const lerpColor = (color1, color2, ratio) => {
+            const rgb1 = color1.match(/\d+/g).map(Number);
+            const rgb2 = color2.match(/\d+/g).map(Number);
+            return `rgb(${
+                rgb1.map((component, index) => Math.round(component + (rgb2[index] - component) * ratio)).join(', ')
+            })`;
+        };
+
+        // Return the interpolated color
+        return lerpColor(lowerStop[1], upperStop[1], ratio);
+    };
+
+    const percentageColor = getPercentageColor(likelihood);
+
+    // Convert the likelihood into a descriptive label
+    const getLikelihoodDescription = (value) => {
+        if (value == 0) return 'Impossible';
+        if (value > 0 && value < 10) return 'Extremely unlikely';
+        if (value >= 10 && value < 20) return 'Highly unlikely';
+        if (value >= 20 && value < 30) return 'Very unlikely';
+        if (value >= 30 && value < 40) return 'Rather unlikely';
+        if (value >= 40 && value < 50) return 'Somewhat unlikely';
+        if (value == 50) return 'Fifty-fifty';
+        if (value > 50 && value < 60) return 'Somewhat likely';
+        if (value >= 60 && value < 70) return 'Rather likely';
+        if (value >= 70 && value < 80) return 'Very likely';
+        if (value >= 80 && value < 90) return 'Highly likely';
+        if (value >= 90 && value < 100) return 'Extremely likely'; // Assuming the value can be 100 or more
+        if (value == 100) return 'Certain';
+    };
+
+    const likelihoodDescription = getLikelihoodDescription(likelihood);
+
+
     return (
         <div className="forecast-question">
-            <h2>{question}</h2>
+            <h2>{renderQuestionWithTooltips(question)}</h2>
             <p>{explanation}</p>
             <div className="slider-container">
-                <span className="slider-label">Unlikely</span>
+                <span className="slider-label">Impossible</span>
                 <input
                     type="range"
                     min="0"
                     max="100"
                     value={likelihood}
-                    onChange={(e) => handleSliderChange(id, e.target.value)}
+                    onChange={(e) => throttledHandleSliderChange(id, e.target.value)}
                     disabled={hasSubmitted}
                 />
-                <span className="slider-label">Likely</span>
-                <div className="expression-face">
-                    {selectExpression(likelihood)}
+                <span className="slider-label">Certain</span>
+                <span className="percentage-indicator" style={{ color: percentageColor, fontWeight: 'bold' }}>
+                    {likelihood}%
+                </span>
+            </div>
+            <div className="likelihood-description-container">
+                <div className="likelihood-description" style={{ color: percentageColor, textAlign: 'center' }}>
+                    <h1>{likelihoodDescription}</h1>
                 </div>
             </div>
-            <span className="likelihood-percentage">{likelihood}%</span>
         </div>
     );
 };

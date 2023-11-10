@@ -8,6 +8,71 @@
     background-color: #fff; /* Add a white background */
     /*box-shadow: 0 2px 4px rgba(0,0,0,0.1); !* Add a subtle shadow to lift the container *!*/
     border-radius: 8px; /* Smooth out the corners */
+    overflow-x: hidden;
+}
+
+.explanatory-text {
+    color: rgb(75, 75, 75);
+    font-size: 18px;
+}
+
+.sticky-progress-container {
+    position: sticky;
+    top: 0; /* Adjust this value if you want some spacing from the top */
+    background: linear-gradient(to bottom, white 65%, rgba(255, 255, 255, 0) 100%); /* Adjust the percentage for transition */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 15px 0 40px 0; /* Add some padding around the text and progress bar */
+    /*border-bottom: 1px solid #e0e0e0; !* Optional: adds a line to separate from content below *!*/
+}
+
+.progress-bar-container {
+    width: 100%; /* Full width of its container */
+    background-color: #e0e0e0; /* Light grey background */
+    border-radius: 5px; /* Rounded corners */
+    margin: 20px 0; /* Margin for spacing */
+    height: 20px; /* Height of the progress bar */
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center items vertically */
+    justify-content: center; /* Center items horizontally */
+}
+
+.progress-bar {
+    height: 100%; /* Full height of its container */
+    background-color: #4caf50; /* Green background for progress */
+    border-radius: 5px; /* Rounded corners */
+    transition: width 0.5s ease-in-out; /* Smooth transition for width changes */
+}
+
+.time-remaining-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /*margin: 10px;*/
+    padding: 10px;
+    background-color: rgb(248, 250, 251); /* Grey background */
+    /*background-color: #f5f5f5; !* Light grey background *!*/
+    border: 3px dashed rgb(200, 230, 250); /* Light grey border */
+    border-radius: 8px; /* Smooth out the corners */
+    height: 100px;
+}
+
+.time-remaining-container strong,
+.time-remaining-container span {
+    margin: 5px 0; /* Spacing between 'Time remaining' and the actual time */
+    font-size: 1em; /* Adjust the font size as needed */
+}
+
+.percentage-indicator {
+    font-size: 1.5em; /* Large font size for the percentage */
+    margin-left: 8px; /* Spacing from the slider */
+    font-weight: bold; /* Bold font for the percentage */
+}
+
+/* Add this within your existing .forecasts-container styles */
+.likelihood-description-container {
+    margin-top: 20px; /* Space from the slider */
 }
 
 /* Add styles for time remaining and questions answered sections */
@@ -33,29 +98,65 @@
 }
 
 .forecast-category {
-    background-color: #f8f8f8; /* Grey background */
+    /*background-color: #f8f8f8; !* Grey background *!*/
     border-radius: 12px; /* Optional: rounded corners */
     padding: 20px; /* Spacing inside the category container */
-    margin-bottom: 20px; /* Spacing between each category container */
+    margin-bottom: 40px; /* Spacing between each category container */
+}
+
+.category-title-container {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 20px 0; /* Adjust as necessary */
+    color: rgb(175, 175, 175);
+}
+
+.category-title-container::before,
+.category-title-container::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgb(175, 175, 175); /* Change color as needed */
+    margin: 0 20px; /* Adjust the spacing around the lines */
+}
+
+.forecast-category-title {
+    padding: 0 10px; /* This ensures the text does not touch the lines */
+    background: #fff; /* Match the background color of your site to cover the line */
+    position: relative;
+    z-index: 1; /* Ensures the background color covers the line */
+}
+
+.forecast-category-title {
+    text-align: center;
 }
 
 .forecast-question {
-    height: 200px;
-    border-bottom: 1px solid #e1e1e1;
+    /*height: 200px;*/
+    /*background-color: #f8f8f8; !* Grey background *!*/
+    background-color: rgb(248, 250, 251); /* Grey background */
+    /*border-bottom: 1px dashed #e1e1e1;*/
+    border-radius: 12px; /* Optional: rounded corners */
+    padding: 20px; /* Spacing inside the category container */
     margin-bottom: 20px;
-    padding-bottom: 20px;
+}
+
+.glossary-word {
+    color: #ff0099; /* Or any color you'd like, specified in hex, rgb, or a named color */
+    /*text-decoration: underline; !* Optional: if you want to indicate that it's interactive *!*/
+    /*cursor: help; !* Optional: change cursor to indicate hover functionality *!*/
 }
 
 /* Typography improvements for hierarchy and readability */
 .forecast-question h3 {
-    color: #333;
+    color: rgb(75, 75, 75);
     margin-bottom: 10px; /* Increase space below the heading for better visual separation */
     font-size: 18px; /* Slightly larger to denote importance */
     font-weight: 600; /* Bold weight for headings */
 }
 
 .forecast-question p {
-    color: #666;
+    color: rgb(75, 75, 75);
     font-size: 15px; /* Adjust font size for readability */
     line-height: 1.7; /* Improved line height */
     margin-bottom: 15px; /* Adjust bottom margin */
@@ -76,7 +177,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #4CAF50;
+    background: rgb(28, 176, 246);
     cursor: pointer;
 }
 
@@ -84,7 +185,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #4CAF50;
+    background: rgb(28, 176, 246);
     cursor: pointer;
 }
 
@@ -150,7 +251,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #4CAF50;
+    background: rgb(28, 176, 246);
     cursor: pointer;
     /* Center the thumb by moving it up by half its height */
     margin-top: -8.5px; /* Adjust this value if necessary */
@@ -160,7 +261,7 @@
     width: 25px;
     height: 25px;
     border-radius: 50%;
-    background: #4CAF50;
+    background: rgb(28, 176, 246);
     cursor: pointer;
     /* There is no need to adjust for Firefox as it centers by default */
 }
@@ -187,6 +288,7 @@
 .slider-container {
     display: flex;
     align-items: center;
+    justify-content: space-between; /* Space between the unlikely label, slider, and percentage */
 }
 
 /* Slider labels */
@@ -229,11 +331,29 @@
 /* Ensure content is not too wide on large screens */
 @media (min-width: 768px) {
     .forecasts-container {
-        padding: 40px; /* Increase padding on larger screens */
+        padding: 25px; /* Increase padding on larger screens */
+        /*width: 200px;*/
     }
 }
 
+@media (max-width: 480px) {
+    .slider-label {
+        visibility: hidden;
+    }
+
+    /*.forecast-question input[type="range"] {*/
+    /*    border: 1px red solid;*/
+    /*}*/
+
+    /*.forecast-question input[type="range"]::-webkit-slider-runnable-track {*/
+    /*    width: 100%;*/
+    /*    height: 8px;*/
+    /*    background: #ddd;*/
+    /*    border-radius: 4px;*/
+    /*}*/
+    }
+
 /* Adding transitions for smooth visual effects */
 * {
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+    /*transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;*/
 }
