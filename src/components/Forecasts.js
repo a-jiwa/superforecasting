@@ -131,7 +131,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
 
     return (
         <div className="forecasts-container">
-            <h1>Questions</h1>
+            <h1 className={"forecasts-header"}>Questions</h1>
             <p className="explanatory-text">
                 Browse through a collection of questions, each accompanied by a slider to indicate your predicted likelihood of the event in question. Your task is to adjust these sliders based on your assessment. Once you have set your forecasts, submit them using the button provided. Remember, your predictions matter, so take your time to consider each question carefully.
             </p>
