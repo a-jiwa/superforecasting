@@ -6,7 +6,7 @@ import { ReactComponent as ForecastIcon } from '../icons/home.svg';
 import { ReactComponent as LeaderboardIcon } from '../icons/leaderboard.svg';
 import { ReactComponent as HowItWorksIcon } from '../icons/how-it-works.svg';
 import { ReactComponent as ProfileIcon } from '../icons/profile.svg';
-import { ReactComponent as LogoIcon } from '../icons/home.svg';
+import { ReactComponent as LogoIcon } from '../icons/logo.svg';
 
 function MenuItem({ label, Icon, isSelected, onClick }) {
     return (
@@ -19,10 +19,10 @@ function MenuItem({ label, Icon, isSelected, onClick }) {
 
 function Menu({ selected, onSelect }) {
     const menuItems = [
-        { label: 'Forecasts', Icon: ForecastIcon },
-        { label: 'Leaderboard', Icon: LeaderboardIcon },
-        { label: 'How it works', Icon: HowItWorksIcon },
-        { label: 'Profile', Icon: ProfileIcon },
+        { label: 'FORECASTS', Icon: ForecastIcon },
+        { label: 'LEADERBOARD', Icon: LeaderboardIcon },
+        { label: 'HOW IT WORKS', Icon: HowItWorksIcon },
+        { label: 'PROFILE', Icon: ProfileIcon },
     ];
 
     return (

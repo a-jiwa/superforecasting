@@ -36,9 +36,10 @@
     padding: 10px;
     cursor: pointer;
     margin: 5px 15px;
-    letter-spacing: 1.5px;
     border: 2px solid rgb(255, 255, 255);
     border-radius: 12px;
+
+    font-family: "DIN Next Rounded LT W01 Medium", serif;
 }
 
 .menu-item.selected {
@@ -98,6 +99,43 @@
     .logo-icon {
         display: block;
         margin: auto; /* Center logo icon when text is not present */
+    }
+}
+
+/* Media query for screen width 480px or less */
+@media (max-width: 480px) {
+    .menu {
+        /*border: 1px red solid;*/
+        width: 100%; /* Full width of the viewport */
+        /*height: 60px; !* Fixed height for the menu *!*/
+        position: sticky; /* Fixed position */
+        bottom: 0; /* Align to the bottom of the viewport */
+        left: 0; /* Align to the left of the viewport */
+        flex-direction: row; /* Arrange items horizontally */
+        justify-content: space-around; /* Distribute items evenly */
+        overflow-x: auto; /* Allow horizontal scroll for many items */
+        border-bottom: 1px solid #ccc; /* Optional border for visual separation */
+        z-index: 2000; /* Ensure the menu is above other content */
+    }
+
+    .menu-item {
+        flex-grow: 1; /* Allow items to grow to fill available space */
+        justify-content: center; /* Center icons in their container */
+        padding: 10px 0px; /* Adjust padding */
+    }
+
+    .menu-icon {
+        margin-right: 0px; /* Remove margin between icon and text */
+        width: 35px; /* Icon width */
+        height: 35px; /* Icon height */
+    }
+
+    .menu-text {
+        display: none; /* Hide text labels on small screens */
+    }
+
+    .logo-container {
+        display: none; /* Optionally hide the logo on very small screens */
     }
 }
 
