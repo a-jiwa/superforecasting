@@ -11,6 +11,10 @@
     overflow-x: hidden;
 }
 
+.forecasts-header {
+    font-family: "DIN Next Rounded LT W01 Medium", serif;
+}
+
 .explanatory-text {
     color: rgb(75, 75, 75);
     font-size: 18px;

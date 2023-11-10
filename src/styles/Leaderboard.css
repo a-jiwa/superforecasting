@@ -22,6 +22,8 @@
     height: 120px;
     border-bottom: 1px solid #eee; /* Optional, for visual separation */
 
+    font-family: "DIN Next Rounded LT W01 Medium", serif;
+
     /*border: 1px #1b2777 solid;*/
 }
 

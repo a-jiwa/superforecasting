@@ -2,18 +2,22 @@
 
 /* Container styles */
 .how-it-works-container {
+  max-width: 900px;
+  margin: 0 auto;
+
   padding: 20px;
-  background-color: #f5f5f5;
+  background-color: #fff;
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  margin: 20px;
+
+  overflow-x: hidden;
 }
 
 /* Heading styles */
 .how-it-works-heading {
-  font-size: 28px;
+  font-size: 2em;
   color: #333;
-  margin-bottom: 20px;
+  margin-bottom: 0.5em;
+  font-family: "DIN Next Rounded LT W01 Medium", serif;
 }
 
 /* Content styles */
@@ -23,10 +27,18 @@
   color: #666;
 }
 
+.how-it-works-section {
+  background-color: rgb(248, 250, 251); /* Grey background */
+  border-radius: 12px; /* Optional: rounded corners */
+  padding: 20px; /* Spacing inside the category container */
+  margin-bottom: 20px;
+}
 /* Sub-heading styles */
 .how-it-works-content h2 {
+  font-family: "DIN Next Rounded LT W01 Medium", serif;
+
   font-size: 24px;
-  color: #333;
+  /*color: #333;*/
   margin-top: 20px;
   margin-bottom: 10px;
 }
