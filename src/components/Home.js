@@ -109,7 +109,7 @@ function Home() {
                     loadForecasts={loadForecasts}
                 />;
             case 'LEADERBOARD':
-                return <Leaderboard />;
+                return <Leaderboard activeUserId={userId} />;
             case 'HOW IT WORKS':
                 return <HowItWorks />;
             case 'PROFILE':

@@ -1,9 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { collection, getDocs, orderBy, query } from 'firebase/firestore';
 import { db } from '../firebase';
-import '../styles/leaderboard.css';
+import '../styles/Leaderboard.css';
 
-function Leaderboard() {
+import FirstPlaceIcon from '../icons/first.svg';
+import SecondPlaceIcon from '../icons/second.svg';
+import ThirdPlaceIcon from '../icons/third.svg';
+
+function Leaderboard({ activeUserId }) {
     const [scores, setScores] = useState([]);
     const colors = ["#FFADAD", "#FFD6A5", "#FDFFB6", "#CAFFBF", "#9BF6FF", "#A0C4FF", "#BDB2FF", "#FFC6FF"]; // Preset colors
 
@@ -27,10 +31,6 @@ function Leaderboard() {
 
         fetchScores();
     }, []);
-
-    const renderRank = (index) => {
-        return index + 1;
-    };
 
     const defaultProfilePic = (
         <svg height="50" width="50" viewBox="0 0 50 50" className="profile-svg">
@@ -70,6 +70,28 @@ function Leaderboard() {
         );
     };
 
+    const TopRankSVG = ({ rank }) => (
+        <svg height="30" width="30" className={`rank-svg rank-${rank}`}>
+            {/* SVG content here. Example: A star or medal icon */}
+            <text x="50%" y="50%" dy=".3em" textAnchor="middle" fill="#000" fontSize="20px" fontFamily="Arial">
+                {rank}
+            </text>
+        </svg>
+    );
+
+    const renderRank = (index) => {
+        switch (index) {
+            case 0:
+                return <img src={FirstPlaceIcon} alt="1st Place" className="rank-icon" />;
+            case 1:
+                return <img src={SecondPlaceIcon} alt="2nd Place" className="rank-icon" />;
+            case 2:
+                return <img src={ThirdPlaceIcon} alt="3rd Place" className="rank-icon" />;
+            default:
+                return index + 1;
+        }
+    };
+
     return (
         <div className="leaderboard">
             <div className="leaderboard-header">
@@ -78,12 +100,15 @@ function Leaderboard() {
             </div>
             <ul className="leaderboard-list">
                 {scores.map((score, index) => (
-                    <li key={score.id || index} className="leaderboard-entry">
+                    <li key={score.id || index}
+                        className={`leaderboard-entry ${score.userId === activeUserId ? 'active-user-row' : ''}`}>
                         <span className="rank">{renderRank(index)}</span>
                         <div className="profile-pic-container">
                             <ProfilePicture name={score.userName} />
                         </div>
-                        <span className="name">{score.userName}</span>
+                        <span className="name">
+                        {score.userName}
+                    </span>
                         <span className="score">{score.score}</span>
                     </li>
                 ))}
