@@ -58,6 +58,10 @@
     font-family: "DIN Next Rounded LT W01 Medium", serif;
 }
 
+.leaderboard-entry:hover {
+    background-color: #f0f0f0;
+}
+
 .profile-pic-container {
     flex: 0 0 50px;
     margin-right: 10px;
