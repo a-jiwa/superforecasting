@@ -139,9 +139,13 @@
 }
 
 .active-user-row {
-    background-color: rgb(221, 244, 255);
+    background-color: rgb(230, 255, 221);
     color: rgb(28, 176, 246);
-    border: 2px solid rgb(132, 216, 255);
+    border: 2px solid rgb(181, 255, 132);
+}
+
+.active-user-row:hover {
+    background-color: rgb(206, 238, 253);
 }
 
 /* Responsive adjustments */
