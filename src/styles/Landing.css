@@ -1,6 +1,6 @@
 /* src/styles/Landing.css */
 .landing-container {
-    max-width: 1000px; /* Set a max width for the entire content */
+    /*max-width: 1000px; !* Set a max width for the entire content *!*/
     height: 100vh;
     margin: 0 auto; /* Center the content horizontally */
     overflow: hidden;
@@ -20,23 +20,35 @@
     text-align: center;
 }
 
-.main-content {
+.landing-main-content {
     display: flex;
     flex-direction: row; /* Display columns side by side */
     justify-content: center; /* Center columns horizontally */
     align-items: center; /* Center columns vertically */
 
-    font-family: "DIN Next Rounded LT W01 Regular", sans-serif;
+    /*font-family: "DIN Next Rounded LT W01 Regular", sans-serif;*/
 
     /*gap: 20px;*/
     /*border: 1px #00eaff solid;*/
+    width: 100vw;
     fill: rgb(28, 176, 246);
-    height: 90%;
+    height: 100%;
+    top: 50%;
+    right: 50%;
+    /*border: 1px red solid;*/
+    /*margin-right: 250px;*/
 }
 
 .left-column {
-    flex: 1; /* Occupy 1/2 of the available space */
-    /* Add any styles you need for the SVG image here */
+    display: flex;
+    flex-direction: row; /* Display columns side by side */
+    /*justify-content: center; !* Center columns horizontally *!*/
+    align-items: center; /* Center columns vertically */
+
+    flex: 2; /* Occupy 1/2 of the available space */
+    height: 100%;
+    color: rgb(4, 82, 0);
+    background-color: rgb(93, 255, 0);
 }
 
 .right-column {
@@ -46,19 +58,34 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    height: 100%;
+    background-color: rgb(255, 255, 255);
+    /*border: 1px red solid;*/
 }
 
+.text-area {
+    /*border: 1px red solid;*/
+    margin-left: 40px;
+    margin-right: 120px;
+    max-width: 900px;
+}
 h3 {
-    font-size: 34px;
-    color: rgb(63, 63, 63)
+    font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
+    font-size: 76px;
+    margin-bottom: -20px;
+    font-weight: normal;
 }
 
+p {
+    font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
+    font-size: 32px;
+}
 .buttons {
     margin-top: 20px;
 }
 
 .blue-button {
-    background-color: rgb(28, 176, 246); /* Blue background color */
+    background-color: rgb(0, 0, 0);
     color: #fff; /* White text color */
     transition: background-color 0.3s, color 0.3s; /* Add a transition effect */
 }
@@ -66,8 +93,8 @@ h3 {
 /* Style for the white button */
 .white-button {
     background-color: #fff; /* White background color */
-    color: rgb(28, 176, 246); /* Blue text color */
-    border: 2px solid rgb(28, 176, 246); /* Blue border */
+    color: black; /* Blue text color */
+    border: 2px solid black; /* Blue border */
     transition: background-color 0.3s, color 0.3s, border-color 0.3s; /* Add a transition effect */
 }
 
@@ -77,13 +104,14 @@ h3 {
 
 /* Common button styles */
 .button {
-    font-family: "DIN Next Rounded LT W01 Regular", sans-serif;
+    /*font-family: "DIN Next Rounded LT W01 Regular", sans-serif;*/
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 20px;
+    /*padding: 10px 20px;*/
     text-decoration: none;
-    margin: 10px 10px;
+    z-index: 100;
+    /*margin: 10px 10px;*/
 }
 
 .lottie-animation {
@@ -92,38 +120,88 @@ h3 {
     /*border: 1px red solid;*/
 }
 
+.ourNames {
+    /*border: 1px red solid;*/
+    position: absolute;
+    bottom: 10px;
+    color: #a9a9a9;
+}
+
+.shape-animation {
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    /*border: 1px red solid;*/
+    top: 5%;
+    right: calc(17% - 100px);
+    z-index: 0;
+}
+
+b {
+    font-weight: normal;
+    color: #4b4b4b;
+}
+
 /* Media query for responsive design */
 @media screen and (max-width: 768px) {
-    .main-content {
+    .landing-main-content {
         flex-direction: column; /* Stack columns on top of each other */
         text-align: center;
-        width: 100vw;
-        height: 80%;
+        min-height: 600px;
+        /*height: 80%;*/
+        /*margin-right: 90px;*/
+        /*border: 1px red solid;*/
         /*align-items: center;*/
+    }
+
+    .shape-animation {
+        visibility: hidden;
+    }
+
+    h3 {
+        visibility: visible;
+        /*border: 1px red solid;*/
+        font-size: 64px !important;
+        line-height: normal;
+    }
+
+    .text-area p {
+        visibility: hidden;
+        line-height: 0;
+        /*font-size: 0;*/
+    }
+
+    .text-area {
+        margin-right: 0;
+        margin-left: 0;
     }
 
     .left-column {
         order: 1; /* Change the order of left column */
         width: 70%;
-        height: auto;
+        height: 50vh;
+        flex: 1; /* Occupy 1/2 of the available space */
+        background-color: white;
+        /*visibility: hidden;*/
 
         /*margin-top: 30px;*/
-        /*border: 1px red solid;*/
+        /*border: 1px #00ff04 solid;*/
     }
 
     .right-column {
+        flex: 2;
         order: 2;
         width: 100vw;
-
+        margin: 20px;
         /*border: 1px #002aff solid;*/
     }
 
     .lottie-animation {
-        max-width: 100px;
+        /*max-width: 100px;*/
     }
     .buttons {
         margin-top: 0px;
-        width: 90vw;
+        /*width: 90vw;*/
 
         text-align: center;
         display: flex;
@@ -140,7 +218,7 @@ h3 {
     }
 
     .button {
-        width: 80vw;
+        /*width: 80vw;*/
         padding: 10px 10px;
         text-decoration: none;
         margin: 5px 0;

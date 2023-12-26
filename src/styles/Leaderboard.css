@@ -2,46 +2,48 @@
     max-width: 900px;
     width: 100%;
     margin: 0 auto;
-    /*padding: 20px;*/
+    padding: 20px;
     background-color: #fff; /* Add a white background */
     /*box-shadow: 0 2px 4px rgba(0,0,0,0.1); !* Add a subtle shadow to lift the container *!*/
     border-radius: 8px; /* Smooth out the corners */
     overflow-x: hidden;
-    min-height: 90vh;
+    /*min-height: 90vh;*/
     /*border: 1px red solid;*/
 }
 .leaderboard-header {
-    position: fixed;
+    /*position: fixed;*/
     width: 100%;
     max-width: 900px;
 
     top: 0;
     background-color: white; /* or any color that matches your design */
     z-index: 10; /* To ensure it stays above other content */
-    padding: 10px;
-    height: 120px;
+    /*padding: 10px;*/
+    /*height: 120px;*/
     border-bottom: 1px solid #eee; /* Optional, for visual separation */
 
-    font-family: "DIN Next Rounded LT W01 Medium", serif;
+    /*font-family: "DIN Next Rounded LT W01 Medium", serif;*/
 
     /*border: 1px #1b2777 solid;*/
 }
 
 .leaderboard h1 {
-    font-size: 2em;
-    color: #333;
-    margin-bottom: 0.5em;
+    /*padding: 0 10px; !* This ensures the text does not touch the lines *!*/
+    font-size: 40px;
+    line-height: 40px;
+    font-weight: 600;
 }
 
 .leaderboard h2 {
     font-size: 1.5em;
     color: #666;
-    margin-bottom: 1em;
+    /*margin-bottom: 1em;*/
 }
 
 .leaderboard-list {
-    padding-top: 100px;
     list-style: none;
+    /*border: 1px red solid;*/
+
 }
 
 .leaderboard-entry {
@@ -145,7 +147,7 @@
 }
 
 .active-user-row:hover {
-    background-color: rgb(206, 238, 253);
+    background-color: rgb(219, 252, 207);
 }
 
 /* Responsive adjustments */

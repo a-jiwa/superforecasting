@@ -16,17 +16,17 @@ function Home() {
         return savedForecasts || [
                 {
                     id: 1,
-                    question: 'What is the likelihood of a recession in the next year?',
+                    question: 'Will the United Kingdom hold a general election in 2024, and will any single party obtain an outright majority, as confirmed by the official results from the UK Electoral Commission?',
                     explanation: 'Consider economic indicators and historical trends to estimate the probability of a recession.',
                     likelihood: 50,
-                    category: 'ECONOMICS',
+                    category: 'UK POLITICS',
                 },
                 {
                     id: 2,
-                    question: 'How likely is it that Uganda will have a significant political reform by the end of this decade?',
+                    question: 'According the ONS, the average UK house price was £291,000 in September 2023, up from £241,541 in 2020. Will the average UK house price rise above £300,000 in 2024?',
                     explanation: 'Assess political stability, reform movements, and international pressures to forecast potential changes.',
                     likelihood: 50,
-                    category: 'POLITICS',
+                    category: 'UK POLITICS',
                 },
                 {
                     id: 3,
@@ -99,20 +99,21 @@ function Home() {
 
     const renderContent = () => {
         switch (selectedMenuItem) {
-            case 'FORECASTS':
+            case 'Forecasts':
                 return <Forecasts
                     forecasts={forecasts}
                     onSliderChange={handleSliderChange}
                     answeredQuestions={answeredQuestions}
                     setAnsweredQuestions={setAnsweredQuestions}
                     userId={userId}
+                    user={user}
                     loadForecasts={loadForecasts}
                 />;
-            case 'LEADERBOARD':
+            case 'Leaderboard':
                 return <Leaderboard activeUserId={userId} />;
-            case 'HOW IT WORKS':
+            case 'How it works':
                 return <HowItWorks />;
-            case 'PROFILE':
+            case 'Profile':
                 return <Profile user={user} />;
             default:
                 return <Forecasts

@@ -3,6 +3,8 @@ body {
   margin: 0;
   overflow-x: hidden;
 
-  font-family: "DIN Next Rounded LT W01 Regular", sans-serif;
+  /*font-family: "DIN Next Rounded LT W01 Regular", sans-serif;*/
+  font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
+
   -webkit-font-smoothing: antialiased;
 }

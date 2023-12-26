@@ -1,0 +1,97 @@
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-black.woff2') format('woff2');
+    font-weight: 900;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-black-italic.woff2') format('woff2');
+    font-weight: 900;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-bold.woff2') format('woff2');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-bold-italic.woff2') format('woff2');
+    font-weight: bold;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-light.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-light-italic.woff2') format('woff2');
+    font-weight: 300;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-medium.woff2') format('woff2');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-medium-italic.woff2') format('woff2');
+    font-weight: 500;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-regular.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-regular-italic.woff2') format('woff2');
+    font-weight: normal;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-semibold.woff2') format('woff2');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-semibold-italic.woff2') format('woff2');
+    font-weight: 600;
+    font-style: italic;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-thin.woff2') format('woff2');
+    font-weight: 100;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Calibre';
+    src: url('../fonts/test-calibre-thin-italic.woff2') format('woff2');
+    font-weight: 100;
+    font-style: italic;
+}

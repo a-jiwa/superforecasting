@@ -1,18 +1,32 @@
 // Forecasts.js
 import React, { useState, useEffect } from 'react';
-import { db, auth } from '../firebase';
+import { db } from '../firebase';
 import '../styles/Forecasts.css';
-import { collection, query, where, getDocs, addDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, doc, setDoc, getDoc } from 'firebase/firestore';
 import ForecastQuestion from './ForecastQuestion';
 
-function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQuestions, userId, loadForecasts }) {
+// Debounce function
+const debounce = (func, delay) => {
+    let debounceTimer;
+    return function() {
+        const context = this;
+        const args = arguments;
+        clearTimeout(debounceTimer);
+        debounceTimer = setTimeout(() => func.apply(context, args), delay);
+    };
+};
+
+
+function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQuestions, userId, loadForecasts, user }) {
     const [submitSuccess, setSubmitSuccess] = useState(false);
     const [hasSubmitted, setHasSubmitted] = useState(false);
     const [timeLeft, setTimeLeft] = useState('');
     const [allAnswered, setAllAnswered] = useState(false);
+    // New local state for slider values
+    const [sliderValues, setSliderValues] = useState({});
 
     // Initialize countdown timer
-    const deadline = new Date(new Date().getFullYear(), 11, 31, 23, 59, 59); // December 31st of the current year
+    const deadline = new Date(2024, 0, 7, 23, 59, 59); // Jan 7th, 2024
 
     useEffect(() => {
         // Timer to update the remaining time
@@ -48,7 +62,39 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
     }, []);
 
 
+    useEffect(() => {
+        const checkSubmission = async () => {
+            if (userId) {
+                const q = query(collection(db, 'forecasts'), where('userId', '==', userId));
+                const querySnapshot = await getDocs(q);
+                if (!querySnapshot.empty) {
+                    setHasSubmitted(true);
+                }
+            }
+        };
 
+        checkSubmission();
+    }, [userId]);
+
+    useEffect(() => {
+        const fetchSliderState = async () => {
+            if (userId) {
+                const docRef = doc(db, 'sliderStates', userId);
+                const docSnap = await getDoc(docRef);
+
+                if (docSnap.exists()) {
+                    const fetchedForecasts = docSnap.data().forecasts;
+                    const sliderState = fetchedForecasts.reduce((acc, forecast) => {
+                        acc[forecast.id] = forecast.likelihood;
+                        return acc;
+                    }, {});
+                    setSliderValues(sliderState);
+                }
+            }
+        };
+
+        fetchSliderState();
+    }, [userId]);
 
     useEffect(() => {
         const checkSubmission = async () => {
@@ -74,15 +120,18 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
 
         setSubmitSuccess(false);
 
-        // Convert likelihood values to integers
+        // Convert likelihood values to integers and include question texts
         const forecastsToSubmit = forecasts.map(forecast => ({
             id: forecast.id,
+            questionText: forecast.question, // Include the question text
             likelihood: parseInt(forecast.likelihood, 10)
         }));
 
         // Prepare the submission object
         const submission = {
             userId: userId,
+            username: user.displayName,
+            email: user.email,
             forecasts: forecastsToSubmit,
             submittedAt: new Date()
         };
@@ -100,6 +149,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
         }
     };
 
+
     const groupForecastsByCategory = (forecasts) => {
         return forecasts.reduce((acc, forecast) => {
             (acc[forecast.category] = acc[forecast.category] || []).push(forecast);
@@ -109,31 +159,44 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
 
     const forecastsByCategory = groupForecastsByCategory(forecasts);
 
-    const handleSliderChange = (id, value) => {
-        onSliderChange(id, value);
-        setAnsweredQuestions(currentAnswered => new Set(currentAnswered).add(id));
+    const debouncedUpdateFirestore = debounce(async (updatedForecasts) => {
+        const sliderStateRef = doc(db, 'sliderStates', userId);
+        await setDoc(sliderStateRef, { forecasts: updatedForecasts });
+    }, 5000);
 
-        // Save the updated forecasts to Local Storage
-        const updatedForecasts = forecasts.map(forecast =>
-            forecast.id === id ? { ...forecast, likelihood: value } : forecast
-        );
-        localStorage.setItem('forecasts', JSON.stringify(updatedForecasts));
+    const handleSliderChange = (id, value) => {
+        // Update local state immediately for responsive UI
+        setSliderValues(prevValues => ({ ...prevValues, [id]: value }));
+
+        // Prepare updated forecasts for Firestore
+        // This should be based on the local state, not the props
+        const updatedForecasts = forecasts.map(forecast => {
+            const updatedValue = id === forecast.id ? value : sliderValues[forecast.id] || forecast.likelihood;
+            return { ...forecast, likelihood: updatedValue };
+        });
+
+        // Update Firestore (debounced)
+        debouncedUpdateFirestore(updatedForecasts);
     };
 
     useEffect(() => {
-        // Check if there are forecasts saved in Local Storage
-        const savedForecasts = JSON.parse(localStorage.getItem('forecasts'));
-        if (savedForecasts) {
-            // Call a prop function to update the forecasts in the parent component
-            loadForecasts(savedForecasts); // This function should be passed as a prop from Home.js
+        // Ensure there is a userId before attempting to fetch user-specific forecasts
+        if (userId) {
+            // Check if there are forecasts saved in Local Storage for the current user
+            const savedForecasts = JSON.parse(localStorage.getItem(`forecasts_${userId}`));
+            if (savedForecasts) {
+                // Call a prop function to update the forecasts in the parent component
+                loadForecasts(savedForecasts); // This function should be passed as a prop from Home.js
+            }
         }
-    }, [loadForecasts]); // Add loadForecasts to the dependency array
+    }, [loadForecasts, userId]); // Add userId to the dependency array
+
 
     return (
         <div className="forecasts-container">
-            <h1 className={"forecasts-header"}>Questions</h1>
+            <h1 className={"forecasts-header"}>Forecasts</h1>
             <p className="explanatory-text">
-                Browse through a collection of questions, each accompanied by a slider to indicate your predicted likelihood of the event in question. Your task is to adjust these sliders based on your assessment. Once you have set your forecasts, submit them using the button provided. Remember, your predictions matter, so take your time to consider each question carefully.
+                For each question adjust the slider based on what you think the liklihood of the event happening is. Once you have set your forecasts for each question, submit them using the button provided. Remember, your final score is calculated from your answers to all the questions, so take your time to consider each question carefully.
             </p>
             <div className="sticky-progress-container">
                 {/*<div className="progress-text">*/}
@@ -147,7 +210,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
 
             <div className="countdown-timer">
                 <div className="time-remaining-container">
-                    <strong>Time remaining:</strong>
+                    <strong>Deadline</strong>
                     <span>{timeLeft}</span>
                 </div>
             </div>
@@ -165,7 +228,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
                             id={forecast.id}
                             question={forecast.question}
                             explanation={forecast.explanation}
-                            likelihood={forecast.likelihood}
+                            likelihood={sliderValues[forecast.id] || forecast.likelihood}
                             handleSliderChange={handleSliderChange}
                             hasSubmitted={hasSubmitted}
                         />

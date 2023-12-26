@@ -14,10 +14,13 @@
 
 /* Heading styles */
 .how-it-works-heading {
-  font-size: 2em;
-  color: #333;
-  margin-bottom: 0.5em;
-  font-family: "DIN Next Rounded LT W01 Medium", serif;
+
+  color: rgb(53, 55, 64);
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
+  /*border: 1px red solid;*/
+  /*font-family: "DIN Next Rounded LT W01 Medium", serif;*/
 }
 
 /* Content styles */
@@ -35,8 +38,9 @@
 }
 /* Sub-heading styles */
 .how-it-works-content h2 {
-  font-family: "DIN Next Rounded LT W01 Medium", serif;
-
+  /*font-family: "DIN Next Rounded LT W01 Medium", serif;*/
+  color: rgb(53, 55, 64);
+  line-height: 24px;
   font-size: 24px;
   /*color: #333;*/
   margin-top: 20px;
@@ -50,6 +54,10 @@
 
 /* Paragraph styles */
 .how-it-works-content p {
+  color: rgb(53, 55, 64);
+  font-size: 20px;
+  line-height: 1.5em;
+  -webkit-font-smoothing: antialiased;
   margin-bottom: 16px;
 }
 

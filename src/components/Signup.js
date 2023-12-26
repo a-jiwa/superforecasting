@@ -118,6 +118,24 @@ function Signup() {
         }
     };
 
+    // Function to handle key press
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            signUp();
+        }
+    };
+
+    useEffect(() => {
+        // Add event listener
+        window.addEventListener('keypress', handleKeyPress);
+
+        // Cleanup event listener
+        return () => {
+            window.removeEventListener('keypress', handleKeyPress);
+        };
+    }, []); // Empty dependency array ensures this runs once on mount
+
+
     const getErrorMessage = (errorCode) => {
         switch (errorCode) {
             case 'auth/email-already-in-use':
@@ -168,7 +186,7 @@ function Signup() {
                         />
                     </button>
                 </div>
-                <button className="button" onClick={signUp}>CREATE ACCOUNT</button>
+                <button className="button" onClick={signUp}>Create Account</button>
                 <div className="loginLink">
                     <span>Already have an account? </span>
                     <Link to="/login">Log in</Link>

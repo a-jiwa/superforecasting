@@ -4,32 +4,26 @@ import '../styles/HowItWorks.css'; // Import the external stylesheet
 function HowItWorks() {
     return (
         <div className="how-it-works-container">
-            <h1 className="how-it-works-heading">How It Works</h1>
+            <h1 className="how-it-works-heading">How it works</h1>
             <div className="how-it-works-content">
 
                 <div className="how-it-works-section">
-                    <h2>Event Prediction Challenge</h2>
+                    <h2>Overview</h2>
                     <p>
-                        Welcome to our Event Prediction Challenge, inspired by the principles of <em>Superforecasting</em>.
-                        Here's a step-by-step guide on how to participate and make accurate predictions for events
-                        happening over the next year.
+                        The game is designed to test your prediction skills.
+                        At the end the year, you answer questions predicting the likelihood of various events occurring in
+                        the upcoming year. These predictions are then evaluated at the end of next year, comparing
+                        what you thought would happen with what actually happened. Your forecasting skills will be measured to
+                        see how you stack up against others.
                     </p>
                 </div>
 
                 <div className="how-it-works-section">
-                    <h2>Review Questions</h2>
+                    <h2>Gameplay Mechanics</h2>
                     <p>
-                        You will find a set of carefully crafted questions about various events or situations that are
-                        expected to unfold within the next year. These questions are designed to challenge your predictive
-                        abilities.
-                    </p>
-                </div>
-
-                <div className="how-it-works-section">
-                    <h2>Assess Event Likelihood</h2>
-                    <p>
-                        For each question, you'll be asked to select a percentage likelihood of the event occurring in the
-                        specified timeframe. Consider all available information and your intuition to make your prediction.
+                        The game centers around predicting the likelihood of various events. You are asked to
+                        assign a probability to each event, ranging from 0% (impossible)
+                        to 100% (certain).
                     </p>
                 </div>
 
@@ -43,10 +37,20 @@ function HowItWorks() {
                 </div>
 
                 <div className="how-it-works-section">
-                    <h2>Scoring and Rankings</h2>
+                    <h2>Scoring System</h2>
                     <p>
-                        Our scoring system will assess the accuracy of your predictions over the course of the year.
-                        The closer your predictions align with actual outcomes, the higher your score will be.
+                        The accuracy of predictions is measured using Brier Scoring, a method that calculates the difference
+                        between the predicted probability and the actual outcome. For example, if you predict a 60%
+                        chance of a specific event occurring and it does happen, the score for that prediction is computed
+                        as (60% - 100%)^2 = 0.16. The player's final score is an average of these squared differences across
+                        all predictions, with a lower score indicating more accurate forecasting.
+                    </p>
+                    <h4>Can't I just put 50% for all questions?</h4>
+                    <p>You might be wondering, why not assign a 50% likelihood to every event, as it seems a safe middle ground.
+                        However, this strategy is flawed because it ignores the varying probabilities of real-life events.
+                        Assigning more accurate probabilities, even if they entail greater risk, typically results in better
+                        scores. This aspect of the game challenges players to move beyond mere guesswork and develop a more
+                        nuanced understanding of probability and event likelihood.
                     </p>
                 </div>
 

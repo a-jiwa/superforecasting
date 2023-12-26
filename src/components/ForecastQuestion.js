@@ -19,7 +19,7 @@ const ForecastQuestion = ({ question, explanation, likelihood, handleSliderChang
 
 // Define the words and the styles you want to apply to them
     const styledWords = {
-        '2.5%': 'highlight',
+        // '2.5%': 'highlight',
         // ... other words
     };
 

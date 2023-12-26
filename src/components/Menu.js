@@ -17,19 +17,21 @@ function MenuItem({ label, Icon, isSelected, onClick }) {
     );
 }
 
-function Menu({ selected, onSelect }) {
+function Menu({ selected = 'Forecasts', onSelect }) {
     const menuItems = [
-        { label: 'FORECASTS', Icon: ForecastIcon },
-        { label: 'LEADERBOARD', Icon: LeaderboardIcon },
-        { label: 'HOW IT WORKS', Icon: HowItWorksIcon },
-        { label: 'PROFILE', Icon: ProfileIcon },
+        { label: 'Forecasts', Icon: ForecastIcon },
+        { label: 'Leaderboard', Icon: LeaderboardIcon },
+        { label: 'How it works', Icon: HowItWorksIcon },
+        { label: 'Profile', Icon: ProfileIcon },
     ];
 
     return (
         <div className="menu">
             <div className="logo-container">
                 <LogoIcon className="logo-icon" />
-                <span className="logo-text"><h2>Forecasting</h2></span>
+                <span className="logo-text">
+                    <h2>TheYearAhead</h2>
+                </span>
             </div>
             {menuItems.map((item) => (
                 <MenuItem

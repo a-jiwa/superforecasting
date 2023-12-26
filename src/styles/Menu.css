@@ -12,18 +12,23 @@
 
     z-index: 9999;
 
+    color: rgb(98, 99, 115);
     /*border: 1px red solid;*/
 }
 
 .logo-text {
-    font-family: "Feather Bold", sans-serif; /* Use "Feather Bold" as the font family */
-    color: #37B724;
+    /*font-family: "Feather Bold", sans-serif; !* Use "Feather Bold" as the font family *!*/
+    color: rgb(28, 176, 246);
     /*padding: 8px;*/
     text-align: center;
     width: 100%;
 
     /*border: 1px red solid;*/
 }
+
+/*.logo-text h2 {*/
+/*    font-weight: 500;*/
+/*}*/
 
 .logo-container {
     display: flex;
@@ -41,22 +46,23 @@
     border: 2px solid rgb(255, 255, 255);
     border-radius: 12px;
 
-    font-family: "DIN Next Rounded LT W01 Medium", serif;
+    /*font-family: "DIN Next Rounded LT W01 Medium", serif;*/
 }
 
 .menu-item.selected {
     background-color: rgb(221, 244, 255);
     color: rgb(28, 176, 246);
-    border: 2px solid rgb(132, 216, 255);
+    /*border: 2px solid rgb(132, 216, 255);*/
+    font-weight: 500;
 }
 
 .menu-item:not(.selected):hover {
-    background-color: #f0f0f0;
+    background-color: #f5f6f7;
 }
 
 .menu-icon {
-    width: 35px; /* Replace with the size you want */
-    height: 35px; /* Replace with the size you want */
+    width: 20px;
+    height: 20px;
     margin-right: 10px; /* Keeps the original spacing */
 }
 
@@ -93,9 +99,9 @@
     }
 
     .menu-icon, .logo-icon {
-        min-width: 35px; /* Minimum icon width */
-        min-height: 35px; /* Minimum icon height */
-        margin-right: 0px; /* Keeps the original spacing */
+        min-width: 20px;
+        min-height: 20px;
+        margin-right: 0px;
     }
 
     .logo-icon {

@@ -13,9 +13,12 @@ import {
 import { sendEmailVerification, isSignInWithEmailLink, signInWithEmailLink } from "firebase/auth";
 import '../styles/App.css';
 
-import closeIcon from '../styles/close-button.svg'; // Adjust the path to where your SVG is located
-import showPasswordIcon from '../styles/show-password.svg'; // Adjust the path as needed
-import hidePasswordIcon from '../styles/hide-password.svg'; // Adjust the path as needed
+import { doc, setDoc, serverTimestamp, Firestore } from "firebase/firestore";
+import { db } from "../firebase"; // Ensure db is a Firestore instance
+
+import closeIcon from '../styles/close-button.svg';
+import showPasswordIcon from '../styles/show-password.svg';
+import hidePasswordIcon from '../styles/hide-password.svg';
 
 
 
@@ -37,6 +40,13 @@ function Login() {
         return () => unsubscribe();
     }, [navigate]);
 
+    const recordLogin = async (user) => {
+        const loginRef = doc(db, 'logins', user.uid);
+        await setDoc(loginRef, {
+            email: user.email,
+            timestamp: serverTimestamp()
+        }, { merge: true });
+    };
 
     const signIn = async () => {
         if (!email || !password) {
@@ -50,7 +60,9 @@ function Login() {
                 await sendEmailVerification(user);
                 setVerificationSent(true);
                 navigate('/verification');
-            } else {
+            }
+            else {
+                await recordLogin(user);
                 navigate('/'); // Navigates to home if already verified
             }
         } catch (error) {
@@ -60,7 +72,10 @@ function Login() {
 
     const signInWithGoogle = async () => {
         try {
-            await signInWithPopup(auth, googleProvider);
+            const result = await signInWithPopup(auth, googleProvider);
+            const user = result.user;
+            await recordLogin(user);
+            navigate('/'); // Navigate to home after successful login
         } catch (err) {
             setError(err.message);
         }
@@ -68,7 +83,10 @@ function Login() {
 
     const signInWithApple = async () => {
         try {
-            await signInWithPopup(auth, appleProvider);
+            const result = await signInWithPopup(auth, appleProvider);
+            const user = result.user;
+            await recordLogin(user);
+            navigate('/'); // Navigate to home after successful login
         } catch (err) {
             setError(err.message);
         }
@@ -76,7 +94,10 @@ function Login() {
 
     const signInWithFacebook = async () => {
         try {
-            await signInWithPopup(auth, facebookProvider);
+            const result = await signInWithPopup(auth, facebookProvider);
+            const user = result.user;
+            await recordLogin(user);
+            navigate('/'); // Navigate to home after successful login
         } catch (err) {
             setError(err.message);
         }
@@ -86,6 +107,23 @@ function Login() {
     const handleClose = () => {
         navigate('/'); // This will navigate to the landing page
     };
+
+    const handleKeyPress = (event) => {
+        if (event.key === 'Enter') {
+            signIn();
+        }
+    };
+
+    useEffect(() => {
+        // Add event listener
+        window.addEventListener('keypress', handleKeyPress);
+
+        // Cleanup event listener
+        return () => {
+            window.removeEventListener('keypress', handleKeyPress);
+        };
+    }, []); // Empty dependency array ensures this runs once on mount
+
 
     const getErrorMessage = (errorCode) => {
         switch (errorCode) {

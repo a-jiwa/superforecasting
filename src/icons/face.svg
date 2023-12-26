@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="80" height="80" viewBox="0 0 321 440">
+    <g id="Group_3" data-name="Group 3" transform="translate(-48 -194)">
+        <g id="Group_2" data-name="Group 2">
+            <g id="Group_1" data-name="Group 1">
+                <circle id="Ellipse_2" data-name="Ellipse 2" cx="153" cy="153" r="153" transform="translate(63 215)" fill="#77cbf2"/>
+                <path id="Rectangle_4" data-name="Rectangle 4" d="M0,0H251a0,0,0,0,1,0,0V203a0,0,0,0,1,0,0H25A25,25,0,0,1,0,178V0A0,0,0,0,1,0,0Z" transform="translate(85 368)" fill="#77cbf2"/>
+                <path id="Path_2" data-name="Path 2" d="M36.414-1.042C66.664-47.542,121,0,121,0V186H0S6.164,45.458,36.414-1.042Z" transform="translate(48 291)" fill="#77cbf2"/>
+                <path id="Path_3" data-name="Path 3" d="M-8.793-5.892S32.9-41,32.9,0,0,144.267,0,164-8.793-5.892-8.793-5.892Z" transform="translate(336 368)" fill="#77cbf2"/>
+            </g>
+            <rect id="Rectangle_6" data-name="Rectangle 6" width="167" height="76" transform="translate(169 558)" fill="#77cbf2"/>
+        </g>
+        <circle id="Ellipse_1" data-name="Ellipse 1" cx="116" cy="116" r="116" transform="translate(100 252)" fill="#fff"/>
+        <path id="Path_5" data-name="Path 5" d="M114.934-21.823l92.941,155.655L6.637,165.751Z" transform="translate(200.287 283.805) rotate(60)" fill="#77cbf2"/>
+        <rect id="Rectangle_3" data-name="Rectangle 3" width="69" height="39" transform="translate(169 532)" fill="#fff"/>
+        <circle id="Ellipse_3" data-name="Ellipse 3" cx="47" cy="47" r="47" transform="translate(169 321)" fill="#77cbf2"/>
+        <path id="Path_4" data-name="Path 4" d="M94.009.6c0-40.622,68.962-67.872,68.962,0S69,144.816,69,161,0,222.833,0,161,94.009,41.222,94.009.6Z" transform="translate(169 372)" fill="#fff"/>
+        <rect id="Rectangle_1" data-name="Rectangle 1" width="69" height="35" transform="translate(100 390)" fill="#fff"/>
+        <path id="Path_1" data-name="Path 1" d="M-28.444-1.389H97.522L69,177H0Z" transform="translate(100 195.39)" fill="rgba(246,28,28,0.57)"/>
+        <rect id="Rectangle_2" data-name="Rectangle 2" width="69" height="35" transform="translate(169 599)" fill="rgba(247,255,47,0.66)"/>
+    </g>
+</svg>
