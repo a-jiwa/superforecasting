@@ -16,9 +16,9 @@ import '../styles/App.css';
 import { doc, setDoc, serverTimestamp, Firestore } from "firebase/firestore";
 import { db } from "../firebase"; // Ensure db is a Firestore instance
 
-import closeIcon from '../styles/close-button.svg';
-import showPasswordIcon from '../styles/show-password.svg';
-import hidePasswordIcon from '../styles/hide-password.svg';
+import closeIcon from '../icons/close-button.svg';
+import showPasswordIcon from '../icons/show-password.svg';
+import hidePasswordIcon from '../icons/hide-password.svg';
 
 
 

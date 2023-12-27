@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { auth } from "../firebase";
 import { sendEmailVerification } from "firebase/auth";
-import closeIcon from "../styles/close-button.svg";
+import closeIcon from "../icons/close-button.svg";
 import '../styles/App.css';
 
 

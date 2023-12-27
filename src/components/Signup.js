@@ -7,9 +7,9 @@ import { db } from "../firebase"; // Import your Firestore instance
 import { collection, addDoc } from "firebase/firestore";
 
 
-import closeIcon from '../styles/close-button.svg'; // Adjust the path to where your SVG is located
-import showPasswordIcon from '../styles/show-password.svg'; // Adjust the path as needed
-import hidePasswordIcon from '../styles/hide-password.svg'; // Adjust the path as needed
+import closeIcon from './styles/close-button.svg'; // Adjust the path to where your SVG is located
+import showPasswordIcon from './styles/show-password.svg'; // Adjust the path as needed
+import hidePasswordIcon from './styles/hide-password.svg'; // Adjust the path as needed
 
 
 import {
