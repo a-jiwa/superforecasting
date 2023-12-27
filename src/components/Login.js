@@ -231,18 +231,18 @@ function Login() {
                 </div>
                 Continue with Google
             </button>
-            <button className="appleButton" onClick={signInWithApple}>
-                <div className="buttonIconContainer">
-                    <img className="buttonIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1920px-Apple_logo_black.svg.png" alt="Apple Logo"/>
-                </div>
-                Continue with Apple
-            </button>
-            <button className="facebookButton" onClick={signInWithFacebook}>
-                <div className="buttonIconContainer">
-                    <img className="buttonIcon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo"/>
-                </div>
-                Continue with Facebook
-            </button>
+            {/*<button className="appleButton" onClick={signInWithApple}>*/}
+            {/*    <div className="buttonIconContainer">*/}
+            {/*        <img className="buttonIcon" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fa/Apple_logo_black.svg/1920px-Apple_logo_black.svg.png" alt="Apple Logo"/>*/}
+            {/*    </div>*/}
+            {/*    Continue with Apple*/}
+            {/*</button>*/}
+            {/*<button className="facebookButton" onClick={signInWithFacebook}>*/}
+            {/*    <div className="buttonIconContainer">*/}
+            {/*        <img className="buttonIcon" src="https://upload.wikimedia.org/wikipedia/commons/5/51/Facebook_f_logo_%282019%29.svg" alt="Facebook Logo"/>*/}
+            {/*    </div>*/}
+            {/*    Continue with Facebook*/}
+            {/*</button>*/}
                 </>
             )}
         </div>

@@ -1,35 +1,40 @@
 /* ../styles/Profile.css */
 
 .profile-container {
+  height: calc(100vh - 100px);
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  overflow-x: hidden;
+
   display: flex;
   flex-direction: column;
-  /*justify-content: space-between;*/
-  align-items: center;
-  margin: 0 auto;
-  min-height: 90vh;
-  max-width: 900px;
-  width: 100%;
-  border-radius: 8px; /* Smooth out the corners */
-  /*box-sizing: border-box;*/
-  /*border: 1px red solid;*/
+  justify-content: space-between; /* This will push the logout button to the bottom */
 }
 
 .profile-header {
   display: flex;
   justify-content: space-between;
-  /*align-items: center;*/
-  width: 100%;
-  /*border: 1px blue solid;*/
-  font-family: "DIN Next Rounded LT W01 Medium", serif;
+  align-items: center;
+}
 
-  /*padding: 10px;*/
+.profile-header-text {
+  color: rgb(53, 55, 64);
+  font-size: 40px;
+  line-height: 40px;
+  font-weight: 600;
 }
 
 .profile-name-email {
   text-align: left;
+  flex-grow: 1; /* Adjust as needed */
 }
 
 .profile-picture {
+  font-family: "DIN Next Rounded LT W01 Medium", serif;
+
   width: 150px;
   height: 150px;
   border-radius: 50%;
@@ -39,6 +44,9 @@
   font-size: 100px;
   font-weight: bold;
   color: white;
+
+  order: 2; /* Moves the picture to the right */
+
 }
 
 .score {
@@ -54,6 +62,9 @@
   border-radius: 4px;
   cursor: pointer;
   font-size: 16px;
+
+  display: block;
+  margin: 20px auto; /* Centers the button */
 }
 
 /* Responsive adjustments */

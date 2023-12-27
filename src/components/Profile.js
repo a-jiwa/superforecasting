@@ -21,17 +21,22 @@ function Profile({ user }) {
     return (
         <div className="profile-container">
             <div className="profile-header">
-                <div className="profile-name-email">
-                    <h1>{user.displayName}</h1>
-                    <p>{user.email}</p>
+                <div className="profile-header-left">
+                    <h1 className="profile-header-text">{user.displayName}</h1>
+                    <div className="profile-name-email">
+                        <p>{user.email}</p>
+                    </div>
                 </div>
+
                 <div className="profile-picture" style={{ backgroundColor: stringToColor(user.uid) }}>
                     {user.displayName[0]}
                 </div>
             </div>
+
             <div className="score">
                 {user.score}
             </div>
+
             <button className="logout-button" onClick={() => auth.signOut()}>
                 Log Out
             </button>

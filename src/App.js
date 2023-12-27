@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { HashRouter as Router, Route, Routes, Navigate } from "react-router-dom"; // Modified import
+import { HashRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 
@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Home from "./components/Home";
 import Verification from "./components/Verification";
+import "./styles/App.css"; // Import your styles
 
 function App() {
     const [user, setUser] = useState(null);
@@ -22,11 +23,13 @@ function App() {
     }, []);
 
     if (loading) {
-        return <div>Loading...</div>; // Or some loading spinner component
+        return (
+            <div className="loader"></div> // Use the CSS spinner here
+        );
     }
 
     return (
-        <Router> {/* Using HashRouter now */}
+        <Router>
             <Routes>
                 {/* If user is logged in but not verified, navigate to Verification page */}
                 <Route path="/" element={user ? (user.emailVerified ? <Home /> : <Verification setUser={setUser} />) : <Landing />} />
