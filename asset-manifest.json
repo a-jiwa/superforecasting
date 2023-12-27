@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/superforecasting/static/css/main.eeb161f1.css",
-    "main.js": "/superforecasting/static/js/main.1764e7d2.js",
-    "static/js/787.139d67d8.chunk.js": "/superforecasting/static/js/787.139d67d8.chunk.js",
+    "main.js": "/superforecasting/static/js/main.14109697.js",
+    "static/js/787.0438c5c0.chunk.js": "/superforecasting/static/js/787.0438c5c0.chunk.js",
     "static/media/test-calibre-bold-italic.woff2": "/superforecasting/static/media/test-calibre-bold-italic.2a7d635fe468590d7fee.woff2",
     "static/media/test-calibre-bold.woff2": "/superforecasting/static/media/test-calibre-bold.44775ac63ac38dd5e33a.woff2",
     "static/media/test-calibre-semibold-italic.woff2": "/superforecasting/static/media/test-calibre-semibold-italic.2d29b350284fee39eb8d.woff2",
@@ -30,11 +30,11 @@
     "static/media/how-it-works.svg": "/superforecasting/static/media/how-it-works.6bbe43e0d2a7e9cfa911ec9f0572959b.svg",
     "static/media/close-button.svg": "/superforecasting/static/media/close-button.ed25a8cf69261b0c1e25b147f369f74a.svg",
     "main.eeb161f1.css.map": "/superforecasting/static/css/main.eeb161f1.css.map",
-    "main.1764e7d2.js.map": "/superforecasting/static/js/main.1764e7d2.js.map",
-    "787.139d67d8.chunk.js.map": "/superforecasting/static/js/787.139d67d8.chunk.js.map"
+    "main.14109697.js.map": "/superforecasting/static/js/main.14109697.js.map",
+    "787.0438c5c0.chunk.js.map": "/superforecasting/static/js/787.0438c5c0.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.eeb161f1.css",
-    "static/js/main.1764e7d2.js"
+    "static/js/main.14109697.js"
   ]
 }
