@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
+import { HashRouter as Router, Route, Routes, Navigate } from "react-router-dom"; // Modified import
 import { onAuthStateChanged } from "firebase/auth";
 import { auth } from "./firebase";
 
@@ -26,7 +26,7 @@ function App() {
     }
 
     return (
-        <Router>
+        <Router> {/* Using HashRouter now */}
             <Routes>
                 {/* If user is logged in but not verified, navigate to Verification page */}
                 <Route path="/" element={user ? (user.emailVerified ? <Home /> : <Verification setUser={setUser} />) : <Landing />} />
