@@ -25,9 +25,9 @@ function Landing() {
             <div className="landing-main-content">
                 {/* Two Columns */}
                 <div className="left-column">
-                    <div className="shape-animation">
-                        <ShapeAnimation />
-                    </div>
+                    {/*<div className="shape-animation">*/}
+                    {/*    <ShapeAnimation />*/}
+                    {/*</div>*/}
                     <div className="text-area">
                     {/* Lottie Animation */}
                     {/*<Lottie options={defaultOptions} className="lottie-animation" />*/}

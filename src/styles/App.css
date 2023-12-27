@@ -1,4 +1,5 @@
 .container {
+  /*overflow-x: hidden;*/
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -282,7 +283,11 @@
   .appleButton,
   .facebookButton,
   .orContainer {
-    width: 100%; /* Make width 100% for small screens */
+    /*width: 100%; !* Make width 100% for small screens *!*/
+  }
+
+  .container {
+    border: 1px red solid;
   }
 
   .input, .button {

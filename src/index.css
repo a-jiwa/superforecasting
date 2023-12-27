@@ -7,4 +7,17 @@ body {
   font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
 
   -webkit-font-smoothing: antialiased;
+
+  /*border: 5px blue solid;*/
+
 }
+
+#root {
+  /*border: 5px blue solid;*/
+}
+
+/** {*/
+/*  outline: 1px solid #f00 !important;*/
+/*  opacity: 1 !important;*/
+/*  visibility: visible !important;*/
+/*}*/

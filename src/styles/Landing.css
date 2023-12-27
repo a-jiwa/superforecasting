@@ -1,9 +1,19 @@
 /* src/styles/Landing.css */
 .landing-container {
-    /*max-width: 1000px; !* Set a max width for the entire content *!*/
-    height: 100vh;
+    max-width: 1000px; /* Set a max width for the entire content */
+    height: 90vh;
     margin: 0 auto; /* Center the content horizontally */
     overflow: hidden;
+    width: 400px;
+    /*margin: 0;*/
+    /*border: 1px red solid;*/
+}
+
+body {
+    overflow: hidden;
+    /*border: 1px #00ffc4 solid;*/
+    width: 100px;
+
 }
 
 .landing-main-content {
@@ -11,11 +21,17 @@
     flex-direction: row; /* Display columns side by side */
     justify-content: center; /* Center columns horizontally */
     align-items: center; /* Center columns vertically */
-    width: 100vw;
+    /*width: 100vw;*/
     fill: rgb(28, 176, 246);
     height: 100%;
-    top: 50%;
-    right: 50%;
+    /*top: 50%;*/
+    /*right: 50%;*/
+    /*width: 90vw;*/
+    /*border: 1px #47a640 solid;*/
+    margin: 0;
+    width: 400px;
+
+
 }
 
 .left-column {
@@ -89,7 +105,7 @@ p {
     justify-content: center;
     text-decoration: none;
     z-index: 100;
-    margin: 10px 10px;
+    /*margin: 10px 10px;*/
 }
 
 .lottie-animation {
@@ -160,7 +176,7 @@ b {
         flex: 2;
         order: 2;
         width: 100vw;
-        margin: 20px;
+        /*margin: 20px;*/
     }
     .buttons {
         margin-top: 0px;
@@ -184,50 +200,51 @@ b {
 }
 
 /* Media query for vertical design */
-@media screen and (max-height: 500px) {
-    .landing-main-content {
-        flex-direction: column;
-        text-align: center;
-        overflow: hidden;
-    }
+/*@media screen and (max-height: 500px) {*/
+/*    .landing-main-content {*/
+/*        flex-direction: column;*/
+/*        text-align: center;*/
+/*        overflow: hidden;*/
+/*    }*/
 
-    .text-area {
-        height: 0;
-        visibility: hidden;
-        color: white;
-    }
+/*    .text-area {*/
+/*        height: 0;*/
+/*        visibility: hidden;*/
+/*        color: white;*/
+/*    }*/
 
-    .left-column {
-        flex: 1;
-        visibility: hidden;
-    }
+/*    .left-column {*/
+/*        flex: 1;*/
+/*        visibility: hidden;*/
+/*    }*/
 
-    .right-column {
-        position: absolute;
-        top: 0;
-        order: 0;
-        height: 100vh;
-        margin: 0 0;
-    }
-    h3 {
-        visibility: hidden;
-    }
+/*    .right-column {*/
+/*        position: absolute;*/
+/*        top: 0;*/
+/*        order: 0;*/
+/*        height: 100vh;*/
+/*        margin: 0 0;*/
+/*    }*/
+/*    h3 {*/
+/*        visibility: hidden;*/
+/*    }*/
 
-    .ourNames {
-        visibility: hidden;
-    }
-}
+/*    .ourNames {*/
+/*        visibility: hidden;*/
+/*    }*/
+/*}*/
 
 /* Media query for responsive design */
 @media screen and (max-width: 1000px) {
     .landing-main-content {
         flex-direction: column; /* Stack columns on top of each other */
         text-align: center;
-        min-height: 600px;
+        /*min-height: 600px;*/
         /*height: 80%;*/
         /*margin-right: 90px;*/
         /*border: 1px red solid;*/
         /*align-items: center;*/
+        /*overflow: hidden;*/
     }
 
     .shape-animation {
@@ -250,12 +267,13 @@ b {
     .text-area {
         margin-right: 0;
         margin-left: 0;
+        /*border: 1px #22ff00 solid;*/
     }
 
     .left-column {
         order: 1; /* Change the order of left column */
         width: 70%;
-        height: 50vh;
+        /*height: 50vh;*/
         flex: 1; /* Occupy 1/2 of the available space */
         background-color: white;
         /*visibility: hidden;*/
@@ -267,9 +285,10 @@ b {
     .right-column {
         flex: 2;
         order: 2;
-        width: 100vw;
-        margin: 20px;
-        /*border: 1px #002aff solid;*/
+        width: 100%;
+        margin: 0px;
+        /*border: 1px #22ff00 solid;*/
+
     }
 
     .lottie-animation {
@@ -298,5 +317,7 @@ b {
         padding: 10px 10px;
         text-decoration: none;
         margin: 5px 0;
+        /*border: 1px #22ff00 solid;*/
+
     }
 }
