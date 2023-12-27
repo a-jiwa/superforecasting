@@ -112,7 +112,7 @@ const ForecastQuestion = ({ question, explanation, likelihood, handleSliderChang
     return (
         <div className="forecast-question">
             <h2>{renderQuestionWithTooltips(question)}</h2>
-            <p>{explanation}</p>
+            {/*<p>{explanation}</p>*/}
             <div className="slider-container">
                 <span className="slider-label">Impossible</span>
                 <input
