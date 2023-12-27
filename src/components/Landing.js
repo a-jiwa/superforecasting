@@ -1,7 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import Lottie from "react-lottie";
-import whale from "../styles/globe-3.json"; // Replace with the path to your Lottie JSON file
 import "../styles/App.css";
 import "../styles/Landing.css";
 import ShapeAnimation from "./ShapeAnimation";
@@ -10,7 +8,6 @@ function Landing() {
     const defaultOptions = {
         loop: true,
         autoplay: true,
-        animationData: whale,
         rendererSettings: {
             preserveAspectRatio: "xMidYMid slice"
         }
