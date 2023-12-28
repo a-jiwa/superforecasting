@@ -123,8 +123,8 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
         // Convert likelihood values to integers and include question texts
         const forecastsToSubmit = forecasts.map(forecast => ({
             id: forecast.id,
-            questionText: forecast.question, // Include the question text
-            likelihood: parseInt(forecast.likelihood, 10)
+            questionText: forecast.question,
+            likelihood: parseInt(sliderValues[forecast.id] || forecast.likelihood, 10) // Use updated slider value
         }));
 
         // Prepare the submission object
