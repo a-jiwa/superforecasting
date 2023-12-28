@@ -24,6 +24,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
     const [allAnswered, setAllAnswered] = useState(false);
     // New local state for slider values
     const [sliderValues, setSliderValues] = useState({});
+    const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     // Initialize countdown timer
     const deadline = new Date(2024, 0, 7, 23, 59, 59); // Jan 7th, 2024
@@ -119,6 +120,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
         }
 
         setSubmitSuccess(false);
+        setShowSuccessModal(true);
 
         // Convert likelihood values to integers and include question texts
         const forecastsToSubmit = forecasts.map(forecast => ({
@@ -140,14 +142,37 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
             const forecastsCollectionRef = collection(db, 'forecasts');
             const docRef = await addDoc(forecastsCollectionRef, submission);
 
-            console.log('Document written with ID: ', docRef.id);
+            // Attempt to add user to the leaderboard
+            const leaderboardRef = collection(db, 'leaderboard');
+            const leaderboardDocRef = await addDoc(leaderboardRef, {
+                score: 0,
+                userId: userId,
+                userName: user.displayName,
+            });
+
+            console.log('Leaderboard entry added with ID: ', leaderboardDocRef.id);
             setSubmitSuccess(true);
             setHasSubmitted(true);
         } catch (e) {
-            console.error('Error adding document: ', e);
+            console.error('Error in submission process: ', e);
             setSubmitSuccess(false);
         }
     };
+
+    const handleCloseModal = () => {
+        setShowSuccessModal(false);
+    };
+
+    const SuccessModal = () => (
+        <div className="modal">
+            <div className="modal-content">
+                <span className="close-btn" onClick={handleCloseModal}>&times;</span>
+                {/*<h2>Congratulations!</h2>*/}
+                <p>Your forecasts have been submitted.</p>
+                {/*<a href="/leaderboard">View Leaderboard</a>*/}
+            </div>
+        </div>
+    );
 
 
     const groupForecastsByCategory = (forecasts) => {
@@ -196,17 +221,14 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
         <div className="forecasts-container">
             <h1 className={"forecasts-header"}>Forecasts</h1>
             <p className="explanatory-text">
-                For each question adjust the slider based on what you think the liklihood of the event happening is. Once you have set your forecasts for each question, submit them using the button provided. Remember, your final score is calculated from your answers to all the questions, so take your time to consider each question carefully.
+                For each question adjust the slider based on what you think the likelihood of the event happening is. Once you have set your forecasts for each question, submit them using the button provided. Remember, your final score is calculated from your answers to all the questions, so take your time to consider each question carefully.
             </p>
             <div className="sticky-progress-container">
-                {/*<div className="progress-text">*/}
-                {/*    Questions answered: {answeredQuestions.size} of {forecasts.length}*/}
-                {/*</div>*/}
+                {/* Progress bar code */}
                 <div className="progress-bar-container">
                     <div className="progress-bar" style={{ width: `${(answeredQuestions.size / forecasts.length) * 100}%` }}></div>
                 </div>
             </div>
-
 
             <div className="countdown-timer">
                 <div className="time-remaining-container">
@@ -214,7 +236,6 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
                     <span>{timeLeft}</span>
                 </div>
             </div>
-
 
             {/* Render forecasts by category */}
             {Object.entries(forecastsByCategory).map(([category, forecasts]) => (
@@ -241,6 +262,8 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
                     Submit
                 </button>
             )}
+
+            {showSuccessModal && <SuccessModal />}
         </div>
     );
 }
