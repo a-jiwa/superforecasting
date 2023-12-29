@@ -28,7 +28,7 @@
     -webkit-font-smoothing: antialiased;
 }
 
-.sticky-progress-container {
+.progress-container {
     position: sticky;
     top: 0; /* Adjust this value if you want some spacing from the top */
     background: linear-gradient(to bottom, white 65%, rgba(255, 255, 255, 0) 100%); /* Adjust the percentage for transition */
@@ -37,15 +37,29 @@
     /*border-bottom: 1px solid #e0e0e0; !* Optional: adds a line to separate from content below *!*/
 }
 
+
+.sticky-progress-container {
+    position: fixed;
+    max-width: 900px;
+    width: calc(100vw - 330px);
+    top: 0; /* Adjust this value if you want some spacing from the top */
+    background: linear-gradient(to bottom, white 65%, rgba(255, 255, 255, 0) 100%); /* Adjust the percentage for transition */
+    z-index: 1000; /* Ensure it's above other content */
+    padding: 15px 0 40px 0; /* Add some padding around the text and progress bar */
+    /*border-bottom: 1px solid #e0e0e0; !* Optional: adds a line to separate from content below *!*/
+    /*border: 1px red solid;*/
+}
+
 .progress-bar-container {
     width: 100%; /* Full width of its container */
     background-color: #e0e0e0; /* Light grey background */
     border-radius: 5px; /* Rounded corners */
-    margin: 20px 0; /* Margin for spacing */
+    margin: 5px 0 20px 0; /* Margin for spacing */
     height: 20px; /* Height of the progress bar */
     display: flex; /* Use flexbox for centering */
-    align-items: center; /* Center items vertically */
-    justify-content: center; /* Center items horizontally */
+    /*align-items: center; !* Center items vertically *!*/
+    /*justify-content: center; !* Center items horizontally *!*/
+    /*border: 1px #00e1ff solid;*/
 }
 
 .progress-bar {
@@ -53,6 +67,14 @@
     background-color: #4caf50; /* Green background for progress */
     border-radius: 5px; /* Rounded corners */
     transition: width 0.5s ease-in-out; /* Smooth transition for width changes */
+}
+
+.answered-count {
+    text-align: center;
+    margin: 0;
+    font-size: 20px;
+    font-weight: 500;
+    /* Add more styling as needed */
 }
 
 .time-remaining-container {
@@ -352,7 +374,7 @@
 
 .modal {
     position: fixed;
-    z-index: 1;
+    z-index: 99999;
     left: 0;
     top: 0;
     width: 100%;
@@ -387,7 +409,7 @@
 
 
 /* Ensure content is not too wide on large screens */
-@media (min-width: 768px) {
+@media (max-width: 768px) {
     .forecasts-container {
         padding: 25px; /* Increase padding on larger screens */
         /*width: 200px;*/
@@ -395,11 +417,26 @@
 
     .forecast-question p {
     }
-}
+    .sticky-progress-container {
+        width:calc(100vw - 140px);
+        /*border: 1px #009dff solid;*/
+    }
+    .modal-content {
+        width: 85vw;
+    }
+    }
 
 @media (max-width: 480px) {
     .slider-label {
         visibility: hidden;
+        width: 0;
+    }
+    .sticky-progress-container {
+        width: calc(100vw - 50px);
+    }
+
+    .modal-content {
+        width: 80vw;
     }
 
     /*.forecast-question input[type="range"] {*/

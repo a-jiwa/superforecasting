@@ -1,5 +1,5 @@
 // Forecasts.js
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { db } from '../firebase';
 import '../styles/Forecasts.css';
 import { collection, query, where, getDocs, addDoc, doc, setDoc, getDoc } from 'firebase/firestore';
@@ -144,10 +144,17 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
 
             // Attempt to add user to the leaderboard
             const leaderboardRef = collection(db, 'leaderboard');
+
+            // Format the username as "First Name Last Initial."
+            const nameParts = user.displayName.split(' ');
+            const formattedName = nameParts.length > 1
+                ? `${nameParts[0]} ${nameParts[nameParts.length - 1].charAt(0)}.`
+                : user.displayName;
+
             const leaderboardDocRef = await addDoc(leaderboardRef, {
                 score: 0,
                 userId: userId,
-                userName: user.displayName,
+                userName: formattedName, // Use the formatted name
             });
 
             console.log('Leaderboard entry added with ID: ', leaderboardDocRef.id);
@@ -158,6 +165,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
             setSubmitSuccess(false);
         }
     };
+
 
     const handleCloseModal = () => {
         setShowSuccessModal(false);
@@ -193,6 +201,9 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
         // Update local state immediately for responsive UI
         setSliderValues(prevValues => ({ ...prevValues, [id]: value }));
 
+        // Update answeredQuestions state
+        setAnsweredQuestions(prevQuestions => new Set(prevQuestions.add(id)));
+
         // Prepare updated forecasts for Firestore
         // This should be based on the local state, not the props
         const updatedForecasts = forecasts.map(forecast => {
@@ -217,19 +228,53 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
     }, [loadForecasts, userId]); // Add userId to the dependency array
 
 
+    const [progressBarClass, setProgressBarClass] = useState('progress-container');
+    const switchElementRef = useRef(null); // Ref for the element to switch on
+    const progressBarRef = useRef(null); // Ref for the progress bar
+    const placeholderRef = useRef(null); // Ref for the placeholder
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!switchElementRef.current || !progressBarRef.current) return;
+
+            const switchPoint = switchElementRef.current.getBoundingClientRect().top + window.scrollY;
+            const progressBarHeight = progressBarRef.current.offsetHeight;
+
+            if (window.scrollY > switchPoint) {
+                setProgressBarClass('sticky-progress-container');
+                // Add a placeholder with the same height as the progress bar
+                placeholderRef.current.style.height = `${progressBarHeight}px`;
+            } else {
+                setProgressBarClass('progress-container');
+                // Remove the placeholder
+                placeholderRef.current.style.height = '0px';
+            }
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     return (
         <div className="forecasts-container">
             <h1 className={"forecasts-header"}>Forecasts</h1>
             <p className="explanatory-text">
                 For each question adjust the slider based on what you think the likelihood of the event happening is. Once you have set your forecasts for each question, submit them using the button provided. Remember, your final score is calculated from your answers to all the questions, so take your time to consider each question carefully.
             </p>
-            <div className="sticky-progress-container">
-                {/* Progress bar code */}
+            {/* Element to switch on */}
+            <div ref={switchElementRef}></div>
+
+            {/* Placeholder to prevent layout shift */}
+            <div ref={placeholderRef} style={{ height: '0', overflow: 'hidden' }}></div>
+
+            <div ref={progressBarRef} className={progressBarClass}>
+                <div className="answered-count">
+                    {answeredQuestions.size} / {forecasts.length}
+                </div>
                 <div className="progress-bar-container">
                     <div className="progress-bar" style={{ width: `${(answeredQuestions.size / forecasts.length) * 100}%` }}></div>
                 </div>
             </div>
-
             <div className="countdown-timer">
                 <div className="time-remaining-container">
                     <strong>Deadline</strong>

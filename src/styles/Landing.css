@@ -69,6 +69,18 @@ p {
     font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
     font-size: 32px;
 }
+
+.superforecaster-link {
+    color: #ee00ff; /* Blue color for the link */
+    text-decoration: none; /* Removes underline from the link */
+    font-weight: 500; /* Makes the link text bold */
+}
+
+.superforecaster-link:hover {
+    color: #cf00de; /* Blue color for the link */
+    text-decoration: underline; /* Underline on hover for emphasis */
+}
+
 .buttons {
     /*border: 1px red solid;*/
 }
