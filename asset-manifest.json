@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.5e57e3f4.css",
-    "main.js": "/static/js/main.364f985b.js",
+    "main.css": "/static/css/main.1a63622d.css",
+    "main.js": "/static/js/main.d8f46bf6.js",
     "static/js/787.0438c5c0.chunk.js": "/static/js/787.0438c5c0.chunk.js",
     "static/media/test-calibre-bold-italic.woff2": "/static/media/test-calibre-bold-italic.2a7d635fe468590d7fee.woff2",
     "static/media/test-calibre-bold.woff2": "/static/media/test-calibre-bold.44775ac63ac38dd5e33a.woff2",
@@ -29,12 +29,12 @@
     "static/media/leaderboard.svg": "/static/media/leaderboard.bad7d14d6a23ba4b15083704c96abf63.svg",
     "static/media/how-it-works.svg": "/static/media/how-it-works.6bbe43e0d2a7e9cfa911ec9f0572959b.svg",
     "static/media/close-button.svg": "/static/media/close-button.ed25a8cf69261b0c1e25b147f369f74a.svg",
-    "main.5e57e3f4.css.map": "/static/css/main.5e57e3f4.css.map",
-    "main.364f985b.js.map": "/static/js/main.364f985b.js.map",
+    "main.1a63622d.css.map": "/static/css/main.1a63622d.css.map",
+    "main.d8f46bf6.js.map": "/static/js/main.d8f46bf6.js.map",
     "787.0438c5c0.chunk.js.map": "/static/js/787.0438c5c0.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.5e57e3f4.css",
-    "static/js/main.364f985b.js"
+    "static/css/main.1a63622d.css",
+    "static/js/main.d8f46bf6.js"
   ]
 }
