@@ -32,13 +32,13 @@ function Landing() {
                     {/* Lottie Animation */}
                     {/*<Lottie options={defaultOptions} className="lottie-animation" />*/}
                     <h3>Make your forecasts today.</h3>
-                        <p>Research has found that some people are exceptionally skilled at assigning realistic
+                        <p className="landing-p-text">Research has found that some people are exceptionally skilled at assigning realistic
                             probabilities to possible outcomes – even on topics outside their expertise or interest.
                             These people are called <a href="https://goodjudgment.com/about/"
                                                        className="superforecaster-link">Superforecasters</a>.</p>
-                        <p>Are you one of these Superforecasters?</p>
-                        <p>Compete against a pool of rivals, answering questions on the year ahead, covering categories
-                            including Politics, Culture, and Sport to find out!</p>
+                        <p className="landing-p-text">Are you one of these Superforecasters?</p>
+                        <p className="landing-p-text">Compete against a pool of rivals for a <b className="landing-b-text">£100 Amazon voucher</b>,
+                            answering questions on the year ahead covering categories including Politics, Popular Culture and Sport to find out just how good at political and social punditry you really are!</p>
                     </div>
                 </div>
                 <div className="right-column">

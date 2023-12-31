@@ -66,10 +66,17 @@ h3 {
     color: #ffffff;
 }
 
-p {
+.landing-p-text {
     font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
     font-size: 32px;
     color: #ffffff;
+}
+
+.landing-b-text {
+    font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
+    font-size: 32px;
+    color: #ffffff;
+    font-weight: 700;
 }
 
 .superforecaster-link {
