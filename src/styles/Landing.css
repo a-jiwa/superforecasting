@@ -56,8 +56,23 @@ body {
     /*border: 1px red solid;*/
     margin-left: 40px;
     margin-right: 120px;
-    max-width: 900px;
+    max-width: 1000px;
 }
+
+.text-area-smallscreen {
+    visibility: hidden;
+    height: 0;
+}
+
+.text-area-smallscreen .landing-p-text {
+    font-size: 24px;
+}
+
+.text-area-smallscreen .landing-b-text {
+    font-size: 24px;
+}
+
+
 h3 {
     font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
     font-size: 76px;
@@ -152,7 +167,7 @@ b {
 }
 
 /* Media query for vertical design */
-@media screen and (max-height: 900px) {
+@media screen and (max-height: 800px) {
     .landing-main-content {
         flex-direction: column;
         text-align: center;
@@ -193,6 +208,8 @@ b {
         width: 100vw;
         /*margin: 20px;*/
     }
+
+
     .buttons {
         margin-top: 0px;
         text-align: center;
@@ -269,14 +286,12 @@ b {
     h3 {
         visibility: visible;
         /*border: 1px red solid;*/
-        font-size: 64px !important;
         line-height: normal;
-    }
+        font-size: 60px;
+        font-weight: bold;
+        color: rgb(63, 63, 63);
+        margin-bottom: -80px;
 
-    .text-area p {
-        visibility: hidden;
-        line-height: 0;
-        /*font-size: 0;*/
     }
 
     .text-area {
@@ -285,15 +300,37 @@ b {
         /*border: 1px #22ff00 solid;*/
     }
 
+    .text-area-smallscreen {
+        /*border: 1px red solid;*/
+        visibility: visible;
+        height: auto;
+    }
+
+    .text-area-smallscreen .landing-p-text{
+        color: #8a8a8a;
+    }
+
+    .text-area-smallscreen .landing-b-text{
+        color: #8a8a8a;
+        font-weight: 450;
+    }
+
+    .text-area-bigscreen p {
+        visibility: hidden;
+        line-height: 0;
+    }
+
     .left-column {
         order: 1; /* Change the order of left column */
-        width: 70%;
+        width: 95%;
         /*height: 50vh;*/
-        flex: 1; /* Occupy 1/2 of the available space */
+        flex: 2; /* Occupy 1/2 of the available space */
         background-color: white;
+        margin: 0 50px 0 50px;
         /*visibility: hidden;*/
 
         /*margin-top: 30px;*/
+        line-height: 1.8;
         /*border: 1px #00ff04 solid;*/
     }
 
@@ -306,9 +343,13 @@ b {
 
     }
 
-    .lottie-animation {
-        /*max-width: 100px;*/
+    .ourNames {
+        /*border: 1px red solid;*/
+        position: absolute;
+        bottom: 1%;
+        color: #a9a9a9;
     }
+
     .buttons {
         margin-top: 0px;
         /*width: 90vw;*/
@@ -322,10 +363,7 @@ b {
         /*border: 1px #22ff00 solid;*/
     }
 
-    h3 {
-        font-size: 24px;
-        color: rgb(63, 63, 63)
-    }
+
 
     .button {
         /*width: 80vw;*/
