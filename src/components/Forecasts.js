@@ -278,7 +278,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
 
             <div ref={progressBarRef} className={progressBarClass}>
                 <div className="answered-count">
-                    {answeredQuestions.size} / {forecasts.length + 1}
+                    {answeredQuestions.size} / {forecasts.length}
                 </div>
                 <div className="progress-bar-container">
                     <div className="progress-bar" style={{ width: `${(answeredQuestions.size / forecasts.length) * 100}%` }}></div>
