@@ -27,7 +27,16 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
     const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     // Initialize countdown timer
-    const deadline = new Date(2024, 0, 7, 23, 59, 59); // Jan 7th, 2024
+    const deadline = new Date(2024, 0, 6, 23, 59, 59); // Jan 7th, 2024
+
+    const categoryExplanations = {
+        "UK POLITICS": 'A snapshot of elections, economy and wider government policy. What does the British Government and society look like in 2024?',
+        "GEOPOLITICS": 'A snapshot of regime changes, conflict, and multilateral institutions. What will the world look like in 2024?',
+        "POPULAR CULTURE": 'A snapshot of awards, zeitgeists and celebrities. What does popular culture look like on 2024?',
+        "CELEBRITY DEATHS": 'How likely are these people to pass away in 2024',
+        "BUSINESS": 'A snapshot of what the business world will look like in 2024.',
+        "SPORT": 'A snapshot of key sporting events. Who will reign victorious in 2024?',
+    };
 
     useEffect(() => {
         // Timer to update the remaining time
@@ -269,7 +278,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
 
             <div ref={progressBarRef} className={progressBarClass}>
                 <div className="answered-count">
-                    {answeredQuestions.size} / {forecasts.length}
+                    {answeredQuestions.size} / {forecasts.length + 1}
                 </div>
                 <div className="progress-bar-container">
                     <div className="progress-bar" style={{ width: `${(answeredQuestions.size / forecasts.length) * 100}%` }}></div>
@@ -288,6 +297,8 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
                     <div className="category-title-container">
                         <h2 className="forecast-category-title">{category}</h2>
                     </div>
+                    <p className="category-explanation">{categoryExplanations[category]}</p>
+
                     {forecasts.map(forecast => (
                         <ForecastQuestion
                             key={forecast.id}
