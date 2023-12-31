@@ -11,7 +11,7 @@ const ForecastQuestion = ({ question, explanation, likelihood, handleSliderChang
         'inflation': 'CPIH: Consumer Prices Index including owner occupiers\' housing costs',
         'state': 'Current states are: Antigua and Barbuda, Australia, The Bahamas, Belize, Canada, Grenada, Jamaica, New Zealand, Papua New Guinea, Saint Kitts and Nevis, Saint Lucia, Saint Vincent and the Grenadines, Solomon Islands, Tuvalu, and the United Kingdom',
         'lasting': 'At least 3 months.',
-        'confrontation ': 'An engagement involving military forces resulting in casualties on either side.',
+        'confrontation': 'An engagement involving military forces resulting in casualties on either side.',
         'deployment': 'The movement of equipment to a specific location for operational purposes.',
         'P5': 'China, France, Russia, the United Kingdom, or the United States',
         'FAANG': 'Facebook/Meta, Amazon, Apple, Netflix, Google/Alphabet',
