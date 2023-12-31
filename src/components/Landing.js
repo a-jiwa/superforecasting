@@ -36,7 +36,7 @@ function Landing() {
                                 These people are called <a href="https://goodjudgment.com/about/"
                                                            className="superforecaster-link">Superforecasters</a>.</p>
                             <p className="landing-p-text">Are you one of these Superforecasters?</p>
-                            <p className="landing-p-text">Compete against a pool of rivals for a <b className="landing-b-text">£100 Amazon voucher</b>, answering questions from global politics to popular culture in  <b className="landing-b-text"> the year ahead</b>, to find out!</p>
+                            <p className="landing-p-text">Compete against a pool of rivals for a <b className="landing-b-text">£100 Amazon voucher</b>, answering questions from global politics to popular culture in  <b className="landing-b-text"> the year ahead</b>, to find out.</p>
                         </div>
                         <div className="text-area-smallscreen">
                             <p className="landing-p-text">Compete against a pool of rivals for a <b className="landing-b-text">£100 amazon voucher</b>, answering
