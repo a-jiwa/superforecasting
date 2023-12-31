@@ -16,336 +16,343 @@ function Home() {
         return savedForecasts || [
             {
                 "id": 1,
-                "question": "Will the UK Prime Minister hold a snap general election before June 1st?",
+                "question": "The UK Prime Minister will hold a snap general election before June 1st.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 2,
-                "question": "Will a UK political party other than The Conservative Party, The Labour Party, Liberal Democrats, or SNP win more than 5% of the popular vote in the next general election?",
+                "question": "A UK political party other than The Conservative Party, The Labour Party, Liberal Democrats or SNP will win more than 5% of the popular vote in the next general election.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 3,
-                "question": "Will the Conservative party win the next General Election?",
+                "question": "The Conservative party will win the next General Election.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 4,
-                "question": "Will the Conservative party undergo a change in leadership?",
+                "question": "The Conservative party will undergo a change in leadership.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 5,
-                "question": "Will the Labour party undergo a change in leadership?",
+                "question": "The Labour party will undergo a change in leadership.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 6,
-                "question": "Will the Scottish Parliament pass a bill calling for a new referendum on Scottish independence?",
+                "question": "The Scottish Parliament will pass a bill calling for a new referendum on Scottish independence.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 7,
-                "question": "Will the Northern Irish Parliament pass a bill calling for a new referendum on joining the EU?",
+                "question": "The Northern Irish Parliament will pass a bill calling for a new referendum on joining the EU.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 8,
-                "question": "Will Jeremy Corbyn appear on the ballot for the London Mayoral election?",
+                "question": "Jeremy Corbyn will appear on the ballot for the London Mayoral election.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 9,
-                "question": "Will Sadiq Khan win the next London Mayoral election?",
+                "question": "Sadiq Khan will win the next London Mayoral election.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 10,
-                "question": "Will the average UK house price exceed £300,000, as officially reported by the ONS?",
+                "question": "The average UK house price will exceed £300,000, as officially reported by the ONS.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 11,
-                "question": "Will the UK enter a recession, as reported by the BBC?",
+                "question": "The UK will enter a recession, as reported by the BBC.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 12,
-                "question": "Will the UK's annual inflation rate drop below 3%, as reported on by the ONS?",
+                "question": "The UK's annual inflation rate will drop below 3%, as reported on by the ONS.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 13,
-                "question": "Will a general strike take place in the UK, as reported on by the BBC?",
+                "question": "A general strike will take place in the UK, as reported on by the BBC.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 14,
-                "question": "Will the UK Government pass legislation banning the sale of single-use (disposable) vapes?",
+                "question": "The UK Government will pass legislation banning the sale of single-use (disposable) vapes.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 15,
-                "question": "Will a sovereign state declare independence from the British monarchy?",
+                "question": "A sovereign state will declare independence from the British monarchy.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 16,
-                "question": "Will the ONS report an increase in the number of people working fully remote jobs?",
+                "question": "The ONS will report an increase in the number of people working fully remote jobs.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 17,
-                "question": "Will the UK Government transport a group of asylum seekers from the UK to Rwanda?",
+                "question": "The UK Government will transport a group of asylum seekers from the UK to Rwanda.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 18,
-                "question": "Will the UK government formally announce that it will return the Elgin Marbles to Greece, as confirmed by the BBC?",
+                "question": "The UK government will formally announce that it will return the Elgin Marbles to Greece, as confirmed by the BBC.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
                 "id": 19,
-                "question": "Will the percentage of electricity derived from renewable sources rise above 55% in the UK for any quarter, as reported by gov.uk?",
+                "question": "The percentage of electricity derived from renewable sources will rise above 55% in the UK for any quarter, as reported by gov.uk. ",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
             },
             {
+                "id": 20,
+                "question": "Donald Trump will win the Republican nomination for the 2024 Presidential election.",
+                "explanation": "",
+                "likelihood": 50,
+                "category": "GEOPOLITICS"
+            },
+            {
                 "id": 21,
-                "question": "Will Joe Biden win the Democratic nomination for the 2024 Presidential election?",
+                "question": "Joe Biden will win the Democratic nomination for the 2024 Presidential election.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 22,
-                "question": "Will the Republican Party win the 2024 US presidential election?",
+                "question": "The Republican Party will win the 2024 US presidential election.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 23,
-                "question": "Will Narendra Modi continue as the Prime Minister of India following the 2024 Indian General Election?",
+                "question": "Narendra Modi will continue as the Prime Minister of India following the 2024 Indian General Election.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 24,
-                "question": "Will Benjamin Netanyahu cease to be the Prime Minister of Israel?",
+                "question": "Benjamin Netanyahu will cease to be the Prime Minister of Israel.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 25,
-                "question": "Will Vladimir Putin cease to be the President of Russia?",
+                "question": "Vladimir Putin will cease to be the President of Russia.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 26,
-                "question": "Will Xi Jinping cease to be the President of the People's Republic of China?",
+                "question": "Xi Jinping will cease to be the President of the People's Republic of China.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 27,
-                "question": "Will there be a lasting ceasefire between Russia and Ukraine, as acknowledged by both sides?",
+                "question": "There will be a lasting ceasefire between Russia and Ukraine, as acknowledged by both sides. ",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 28,
-                "question": "Will the United States or UK publicly announce or acknowledge that it has executed a military strike within the territory of Israel, Gaza Strip, Golan Heights, or the West Bank?",
+                "question": "The United States or UK will publicly announce or acknowledge that it has executed a military strike within the territory of Israel, Gaza Strip, Golan Heights, or the West Bank.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 29,
-                "question": "Will Israel publicly announce or acknowledge that IDF (Israel Defence Forces) ground forces have completely withdrawn from the Gaza Strip, as confirmed by an official statement from the Israeli government or the IDF?",
+                "question": "Israel will publicly announce or acknowledge that IDF (Israel Defence Forces) ground forces have completely withdrawn from the Gaza Strip, as confirmed by an official statement from the Israeli government or the IDF.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 30,
-                "question": "Will there be a lethal confrontation between the national military forces of India and China as confirmed by an official statement from the government of India or China?",
+                "question": "There will be a lethal confrontation between the national military forces of India and China as confirmed by an official statement from the government of India or China.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 31,
-                "question": "Will there be a lethal confrontation between China and Taiwan as confirmed by an official statement from the government of Taiwan or China?",
+                "question": "There will be an lethal confrontation between China and Taiwan as confirmed by an official statement from the government of Taiwan or China.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 32,
-                "question": "Will the Russian or Belarusian government publicly announce the deployment of one or more nuclear weapons into Ukrainian territory, as confirmed by an official government statement from Russian or Belarus?",
+                "question": "The Russian or Belarusian government will publicly announce the deployment of one or more nuclear weapons into Ukrainian territory, as confirmed by an official government statement from Russian or Belarus.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 33,
-                "question": "Will the United Nations Security Council expand to include an additional permanent member?",
+                "question": "The United Nations Security Council will expand to include an additional permanent member. ",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 34,
-                "question": "Will a new country be admitted as a full member of the European Union?",
+                "question": "A new country will be admitted as a full member of the European Union.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 35,
-                "question": "Will NATO admit a new country or part of a country as a member?",
+                "question": "NATO will admit a new country or part of a country as a member.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 36,
-                "question": "Will the World Health Organisation declare a new global health emergency due to an infectious disease outbreak?",
+                "question": "The World Health Organisation will declare a new global health emergency due to an infectious disease outbreak.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 37,
-                "question": "Will Argentina reduce its annual inflation rate to below 50%?",
+                "question": "Argentina will reduce its annual inflation rate to below 50%.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 38,
-                "question": "Will a P5 country officially announce their withdrawal from participation in COP 29, before the commencement of the conference?",
+                "question": "A P5 country will officially announce their withdrawal from participation in COP 29, before the commencement of the conference.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 39,
-                "question": "Will electric vehicle sales account for more than 10% of total global car sales?",
+                "question": "Electric vehicle sales will account for more than 10% of total global car sales.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 40,
-                "question": "Will the UK come in the bottom 10 countries in the Eurovision song contest?",
+                "question": "The UK will come in the bottom 10 countries in the Eurovision song contest.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 41,
-                "question": "Will Barbie win more Golden Globe awards than Oppenheimer?",
+                "question": "Barbie will win more Golden Globe awards than Oppenheimer.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 42,
-                "question": "Will a non-English language film win the Academy Award for Best Picture at the Oscars?",
+                "question": "A non-English language film will win the Academy Award for Best Picture at the Oscars.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 43,
-                "question": "Will a film break the record for the highest-grossing opening weekend in movie history worldwide, surpassing the current record as reported by Box Office Mojo?",
+                "question": "A film will break the record for the highest-grossing opening weekend in movie history worldwide, surpassing the current record as reported by Box Office Mojo.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 44,
-                "question": "Will a television series break the record for the most-viewed season, as reported by Netflix's official press statements?",
+                "question": "A television series will break the record for the most-viewed season, as reported by Netflix's official press statements.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 45,
-                "question": "Will Marvel Studios gross an average revenue higher than £802m per film?",
+                "question": "Marvel Studios will gross an average revenue higher than £802m per film.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 46,
-                "question": "Will a Marvel or DC superhero movie released after January 1st receive a rating of above 90% on Rotten Tomatoes as of December 31st?",
+                "question": "A Marvel or DC superhero movie released after January 1st will receive a rating of above 90% on the Rotten Tomatoes as of December 31st. ",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 47,
-                "question": "Will Oasis officially announce a reunion, either for a tour, a single performance, or a new music project?",
+                "question": "Oasis will officially announce a reunion, either for a tour, a single performance, or a new music project.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 48,
-                "question": "Will Kanye West make a publicly confirmed trip to either Israel or Palestine?",
+                "question": "Kanye West will make a publicly confirmed trip to either Israel or Palestine.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
             },
             {
                 "id": 49,
-                "question": "Will Travis Kelce and Taylor Swift announce or acknowledge that they are engaged to be married?",
+                "question": "Travis Kelce and Taylor Swift will announce or acknowledge that they are engaged to be married.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
@@ -436,63 +443,63 @@ function Home() {
             },
             {
                 "id": 62,
-                "question": "Will the price of Bitcoin exceed its previous all-time high of $68,789.63?",
+                "question": "The price of Bitcoin will exceed its previous all-time high of $68,789.63.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "BUSINESS"
             },
             {
                 "id": 63,
-                "question": "Will a FAANG company report a quarterly loss in 2024, as reported in their official quarterly financial statements?",
+                "question": "A FAANG company will report a quarterly loss in 2024, as reported in their official quarterly financial statements.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "BUSINESS"
             },
             {
                 "id": 64,
-                "question": "Will a current CEO of a FAANG company step down or be replaced, as confirmed by an official company announcement?",
+                "question": "A current CEO of a FAANG company will step down or be replaced, as confirmed by an official company announcement.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "BUSINESS"
             },
             {
                 "id": 65,
-                "question": "Will the England men's team win the 2024 Euros?",
+                "question": "The England men's team will win the 2024 Euros.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "SPORT"
             },
             {
                 "id": 66,
-                "question": "Will a UK side win the 2023/24 men’s Champions League?",
+                "question": "A UK side will win the 2023/24 men’s Champions League.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "SPORT"
             },
             {
                 "id": 67,
-                "question": "Will Manchester City win the 2024 men’s Premier League?",
+                "question": "Manchester City will win the 2024 men’s Premier League.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "SPORT"
             },
             {
                 "id": 68,
-                "question": "Will an African or Asian country win the 2024 Men's T20 Cricket World Cup?",
+                "question": "An African or Asian country will win the 2024 Men's T20 Cricket World Cup.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "SPORT"
             },
             {
                 "id": 69,
-                "question": "Will the 2024 Paris Summer Olympics see a country win its first ever gold medal in any event?",
+                "question": "The 2024 Paris Summer Olympics will see a country win its first ever gold medal in any event.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "SPORT"
             },
             {
                 "id": 70,
-                "question": "Will Max Verstappen win the Formula 1 Drivers' Championship for the 2024 season?",
+                "question": "Max Verstappen will win the Formula 1 Drivers' Championship for the 2024 season.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "SPORT"
