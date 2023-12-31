@@ -83,13 +83,13 @@ h3 {
 
 .landing-p-text {
     font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
-    font-size: 32px;
+    font-size: 30px;
     color: #ffffff;
 }
 
 .landing-b-text {
     font-family: 'Calibre', sans-serif; /* Fallback to sans-serif if Calibre is not available */
-    font-size: 32px;
+    font-size: 30px;
     color: #ffffff;
     font-weight: 700;
 }
@@ -268,13 +268,16 @@ b {
 
 /* Media query for responsive design */
 @media screen and (max-width: 1000px) {
+    .landing-container {
+        height: 90vh;
+    }
     .landing-main-content {
         flex-direction: column; /* Stack columns on top of each other */
         text-align: center;
         /*min-height: 600px;*/
         height: 90%;
         /*margin-right: 90px;*/
-        border: 1px #00a6ff solid;
+        /*border: 1px #00a6ff solid;*/
         display: flex;
         align-items: center;
         justify-content: center;
@@ -287,9 +290,9 @@ b {
 
     h3 {
         visibility: visible;
-        border: 1px red solid;
+        /*border: 1px red solid;*/
         line-height: normal;
-        font-size: 40px;
+        font-size: 30px;
         font-weight: bold;
         color: rgb(63, 63, 63);
         margin-bottom: -100px;
@@ -299,12 +302,12 @@ b {
     .text-area {
         margin-right: 0;
         margin-left: 0;
-        border: 1px #22ff00 solid;
+        /*border: 1px #22ff00 solid;*/
         /*height: 50vh;*/
     }
 
     .text-area-smallscreen {
-        border: 1px red solid;
+        /*border: 1px red solid;*/
         visibility: visible;
         height: auto;
     }
@@ -333,7 +336,7 @@ b {
         /*visibility: hidden;*/
 
         /*margin-top: 30px;*/
-        line-height: 1.5;
+        line-height: 1.3;
         /*border: 1px #00ff04 solid;*/
     }
 
