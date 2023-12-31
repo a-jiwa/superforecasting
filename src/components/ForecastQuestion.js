@@ -13,7 +13,7 @@ const ForecastQuestion = ({ question, explanation, likelihood, handleSliderChang
         'lasting': 'At least 3 months.',
         'confrontation': 'An engagement involving military forces resulting in casualties on either side.',
         'deployment': 'The movement of equipment to a specific location for operational purposes.',
-        'P5': 'China, France, Russia, the United Kingdom, or the United States',
+        'P5': 'China, France, Russia, the United Kingdom, and the United States',
         'FAANG': 'Facebook/Meta, Amazon, Apple, Netflix, Google/Alphabet',
         // Add more words and their descriptions here
     };

@@ -79,7 +79,7 @@ function Home() {
             },
             {
                 "id": 10,
-                "question": "The average UK house price will exceed £300,000, as officially reported by the ONS.",
+                "question": "The average UK house price will exceed £300,000.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
@@ -135,7 +135,7 @@ function Home() {
             },
             {
                 "id": 18,
-                "question": "The UK government will formally announce that it will return the Elgin Marbles to Greece, as confirmed by the BBC.",
+                "question": "The UK Government will formally announce that it will return the Elgin Marbles to Greece, as confirmed by the BBC.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "UK POLITICS"
@@ -226,14 +226,14 @@ function Home() {
             },
             {
                 "id": 31,
-                "question": "There will be an lethal confrontation between China and Taiwan as confirmed by an official statement from the government of Taiwan or China.",
+                "question": "There will be a lethal confrontation between China and Taiwan as confirmed by an official statement from the government of Taiwan or China.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
             },
             {
                 "id": 32,
-                "question": "The Russian or Belarusian government will publicly announce the deployment of one or more nuclear weapons into Ukrainian territory, as confirmed by an official government statement from Russian or Belarus.",
+                "question": "The Russian or Belarusian government will publicly announce the deployment of one or more nuclear weapons into Ukrainian territory, as confirmed by an official government statement from Russia or Belarus.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "GEOPOLITICS"
@@ -471,14 +471,14 @@ function Home() {
             },
             {
                 "id": 66,
-                "question": "A UK side will win the 2023/24 men’s Champions League.",
+                "question": "A UK side will win the 2023/2024 men’s Champions League.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "SPORT"
             },
             {
                 "id": 67,
-                "question": "Manchester City will win the 2024 men’s Premier League.",
+                "question": "Manchester City will win the 2023/2024 men’s Premier League.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "SPORT"

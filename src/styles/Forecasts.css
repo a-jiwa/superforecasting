@@ -395,6 +395,11 @@
     width: 35%;
     text-align: center;
     border-radius: 8px;
+    color: black;
+}
+
+p {
+    color: black;
 }
 
 .close-btn {
