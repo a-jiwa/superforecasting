@@ -289,7 +289,7 @@ function Home() {
             },
             {
                 "id": 40,
-                "question": "The UK will come in the bottom 10 countries in the Eurovision song contest.",
+                "question": "The UK won't make it into the top 16 in the Eurovision song contest.",
                 "explanation": "",
                 "likelihood": 50,
                 "category": "POPULAR CULTURE"
