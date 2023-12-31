@@ -167,69 +167,69 @@ b {
 }
 
 /* Media query for vertical design */
-@media screen and (max-height: 800px) {
-    .landing-main-content {
-        flex-direction: column;
-        text-align: center;
-        min-height: 600px;
-    }
+/*@media screen and (max-height: 800px) {*/
+/*    .landing-main-content {*/
+/*        flex-direction: column;*/
+/*        text-align: center;*/
+/*        min-height: 600px;*/
+/*    }*/
 
-    .shape-animation {
-        visibility: hidden;
-    }
+/*    .shape-animation {*/
+/*        visibility: hidden;*/
+/*    }*/
 
-    h3 {
-        visibility: visible;
-        font-size: 64px !important;
-        line-height: normal;
-    }
+/*    h3 {*/
+/*        visibility: visible;*/
+/*        font-size: 64px !important;*/
+/*        line-height: normal;*/
+/*    }*/
 
-    .text-area p {
-        visibility: hidden;
-        line-height: 0;
-    }
+/*    .text-area p {*/
+/*        visibility: hidden;*/
+/*        line-height: 0;*/
+/*    }*/
 
-    .text-area {
-        margin-right: 0;
-        margin-left: 0;
-    }
+/*    .text-area {*/
+/*        margin-right: 0;*/
+/*        margin-left: 0;*/
+/*    }*/
 
-    .left-column {
-        order: 1;
-        width: 70%;
-        height: 50vh;
-        flex: 1;
-        background-color: white;
-    }
+/*    .left-column {*/
+/*        order: 1;*/
+/*        width: 70%;*/
+/*        height: 50vh;*/
+/*        flex: 1;*/
+/*        background-color: white;*/
+/*    }*/
 
-    .right-column {
-        flex: 2;
-        order: 2;
-        width: 100vw;
-        /*margin: 20px;*/
-    }
+/*    .right-column {*/
+/*        flex: 2;*/
+/*        order: 2;*/
+/*        width: 100vw;*/
+/*        !*margin: 20px;*!*/
+/*    }*/
 
 
-    .buttons {
-        margin-top: 0px;
-        text-align: center;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
+/*    .buttons {*/
+/*        margin-top: 0px;*/
+/*        text-align: center;*/
+/*        display: flex;*/
+/*        flex-direction: column;*/
+/*        align-items: center;*/
+/*        justify-content: center;*/
+/*    }*/
 
-    h3 {
-        font-size: 24px;
-        color: rgb(63, 63, 63)
-    }
+/*    h3 {*/
+/*        font-size: 24px;*/
+/*        color: rgb(63, 63, 63)*/
+/*    }*/
 
-    .button {
-        padding: 10px 10px;
-        text-decoration: none;
-        margin: 5px 0;
-    }
-}
+/*    .button {*/
+/*        padding: 10px 10px;*/
+/*        text-decoration: none;*/
+/*        margin: 5px 0;*/
+/*    }*/
+/*}*/
 
 /* Media query for vertical design */
 /*@media screen and (max-height: 500px) {*/
@@ -272,10 +272,12 @@ b {
         flex-direction: column; /* Stack columns on top of each other */
         text-align: center;
         /*min-height: 600px;*/
-        /*height: 80%;*/
+        height: 90%;
         /*margin-right: 90px;*/
-        /*border: 1px red solid;*/
-        /*align-items: center;*/
+        border: 1px #00a6ff solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
         /*overflow: hidden;*/
     }
 
@@ -285,23 +287,24 @@ b {
 
     h3 {
         visibility: visible;
-        /*border: 1px red solid;*/
+        border: 1px red solid;
         line-height: normal;
-        font-size: 60px;
+        font-size: 40px;
         font-weight: bold;
         color: rgb(63, 63, 63);
-        margin-bottom: -80px;
+        margin-bottom: -100px;
 
     }
 
     .text-area {
         margin-right: 0;
         margin-left: 0;
-        /*border: 1px #22ff00 solid;*/
+        border: 1px #22ff00 solid;
+        /*height: 50vh;*/
     }
 
     .text-area-smallscreen {
-        /*border: 1px red solid;*/
+        border: 1px red solid;
         visibility: visible;
         height: auto;
     }
@@ -324,19 +327,19 @@ b {
         order: 1; /* Change the order of left column */
         width: 95%;
         /*height: 50vh;*/
-        flex: 2; /* Occupy 1/2 of the available space */
+        flex: 1; /* Occupy 1/2 of the available space */
         background-color: white;
         margin: 0 50px 0 50px;
         /*visibility: hidden;*/
 
         /*margin-top: 30px;*/
-        line-height: 1.8;
+        line-height: 1.5;
         /*border: 1px #00ff04 solid;*/
     }
 
     .right-column {
-        flex: 2;
-        order: 2;
+        flex: 5;
+        order: 3;
         width: 100%;
         margin: 0px;
         /*border: 1px #22ff00 solid;*/

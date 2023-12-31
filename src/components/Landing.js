@@ -41,7 +41,7 @@ function Landing() {
                         <div className="text-area-smallscreen">
                             <p className="landing-p-text">Compete against a pool of rivals for a <b className="landing-b-text">£100 amazon voucher</b>, answering
                                 questions from global politics to popular culture in  <b className="landing-b-text"> the year ahead</b>. Find out just
-                                how good at political and social punditry you really are!</p>
+                                how good at political and social punditry you really are.</p>
                         </div>
                     </div>
                 </div>
