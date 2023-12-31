@@ -154,9 +154,13 @@
 @media (max-width: 768px) {
     .leaderboard-header {
         width: calc(100vw - 90px);
-        /*left: 90px;*/
-        /*margin-left: 92px;*/
-        /*border: 1px red solid;*/
+        padding: 20px;
+    }
+    .leaderboard {
+        padding: 0px;
+    }
+    .leaderboard-entry {
+        padding-left: 0px;
     }
 
     /*.leaderboard-entry {*/
