@@ -27,7 +27,7 @@ function Forecasts({ forecasts, onSliderChange, answeredQuestions, setAnsweredQu
     const [showSuccessModal, setShowSuccessModal] = useState(false);
 
     // Initialize countdown timer
-    const deadline = new Date(2024, 0, 7, 23, 59, 59); // Jan 7th, 2024
+    const deadline = new Date(2024, 0, 8, 1, 0, 0); // Jan 7th, 2024
 
     const categoryExplanations = {
         "UK POLITICS": 'A snapshot of elections, economy and wider government policy. What does the British Government and society look like in 2024?',
