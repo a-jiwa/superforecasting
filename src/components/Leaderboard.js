@@ -16,13 +16,22 @@ function Leaderboard({ activeUserId }) {
             try {
                 const q = query(collection(db, "leaderboard"), orderBy("score", "desc"));
                 const querySnapshot = await getDocs(q);
-                const scoresData = [];
+                let scoresData = [];
                 querySnapshot.forEach((doc) => {
                     scoresData.push({
                         ...doc.data(),
                         id: doc.id
                     });
                 });
+
+                // Sorting by score and then alphabetically in case of a tie
+                scoresData.sort((a, b) => {
+                    if (a.score === b.score) {
+                        return a.userName.localeCompare(b.userName);
+                    }
+                    return b.score - a.score;
+                });
+
                 setScores(scoresData);
             } catch (error) {
                 console.error("Error getting documents: ", error);
@@ -31,6 +40,7 @@ function Leaderboard({ activeUserId }) {
 
         fetchScores();
     }, []);
+
 
     const defaultProfilePic = (
         <svg height="50" width="50" viewBox="0 0 50 50" className="profile-svg">
@@ -79,16 +89,43 @@ function Leaderboard({ activeUserId }) {
         </svg>
     );
 
-    const renderRank = (index) => {
-        switch (index) {
-            case 0:
-                return <img src={FirstPlaceIcon} alt="1st Place" className="rank-icon" />;
+    // Function to assign ranks with ties
+    const assignRanksWithTies = (scores) => {
+        let currentRank = 1;
+        let prevScore = null;
+        let usersAtCurrentRank = 0;
+
+        scores.forEach((score, index) => {
+            if (score.score === prevScore) {
+                // Same score as previous, assign same rank and increment the users at this rank
+                score.rank = currentRank;
+                usersAtCurrentRank++;
+            } else {
+                // New score, update currentRank considering the number of users at previous rank
+                currentRank += (prevScore === null ? 0 : usersAtCurrentRank);
+                score.rank = currentRank;
+                prevScore = score.score;
+                usersAtCurrentRank = 1; // Reset the counter for the new rank
+            }
+        });
+
+        return scores;
+    };
+
+
+    // Call assignRanks and store the result in a state or variable
+    const scoresWithRanks = assignRanksWithTies(scores);
+
+    const renderRankIcon = (rank) => {
+        switch (rank) {
             case 1:
-                return <img src={SecondPlaceIcon} alt="2nd Place" className="rank-icon" />;
+                return <img src={FirstPlaceIcon} alt="1st Place" className="rank-icon" />;
             case 2:
+                return <img src={SecondPlaceIcon} alt="2nd Place" className="rank-icon" />;
+            case 3:
                 return <img src={ThirdPlaceIcon} alt="3rd Place" className="rank-icon" />;
             default:
-                return index + 1;
+                return rank;
         }
     };
 
@@ -99,10 +136,9 @@ function Leaderboard({ activeUserId }) {
                 <h2>Top Players</h2>
             </div>
             <ul className="leaderboard-list">
-                {scores.map((score, index) => (
-                    <li key={score.id || index}
-                        className={`leaderboard-entry ${score.userId === activeUserId ? 'active-user-row' : ''}`}>
-                        <span className="rank">{renderRank(index)}</span>
+                {scoresWithRanks.map((score) => (
+                    <li key={score.id} className={`leaderboard-entry ${score.userId === activeUserId ? 'active-user-row' : ''}`}>
+                        <span className="rank">{renderRankIcon(score.rank)}</span>
                         <div className="profile-pic-container">
                             <ProfilePicture name={score.userName} />
                         </div>
